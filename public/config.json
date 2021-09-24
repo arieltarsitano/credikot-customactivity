@@ -17,7 +17,7 @@
         "execute": {
            "inArguments":[
              {
-                "emailAddress": "{{InteractionDefaults.Email}}"
+                "emailAddress": "{{Leads_DataExtension.Email}}"
               },
               {
                 "phoneNumber": "{{Contact.Default.PhoneNumber}}"
