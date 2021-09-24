@@ -93,7 +93,7 @@ exports.execute = function (req, res) {
 
             var options = {
                 'method': 'POST',
-                'url': 'https://enu5u963otlypph.m.pipedream.net/emailAddress',
+                'url': 'https://enhayffel7ui7qu.m.pipedream.net/',
                 'headers': {
                     'Content-Type': 'application/json'
                 },
