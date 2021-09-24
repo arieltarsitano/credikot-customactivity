@@ -17,10 +17,10 @@
         "execute": {
            "inArguments":[
              {
-                "emailAddress": "{{Leads_DataExtension.Email}}"
+                "emailAddress": "{{Email}}"
               },
               {
-                "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+                "email": "{{Contact.Default.Email}}"
               }
            ],
           "outArguments": [],
