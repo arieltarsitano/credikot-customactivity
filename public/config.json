@@ -17,9 +17,9 @@
         "execute": {
            "inArguments":[],
           "outArguments": [],
-          "url": "https://enu5u963otlypph.m.pipedream.net",
-           "verb": "GET",
-            "body": "ampty",
+          "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute",
+           "verb": "POST",
+            "body": "",
             "header": "",
             "format": "json",
             "useJwt": true,
