@@ -91,14 +91,16 @@ exports.execute = function (req, res) {
             var request = require('request');
             const util = require("util");
 
+            const numtel = util.inspect(decoded.keyValue);
+
+            const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=Prueba API`
+
             var options = {
                 'method': 'POST',
-                'url': 'https://enhayffel7ui7qu.m.pipedream.net/',
+                'url': urlSmsMasivo,
                 'headers': {
                     'Content-Type': 'application/json'
-                },
-                body: util.inspect(decoded.keyValue) //+ util.inspect(decodedArgs) + util.inspect(decoded.inArguments)
-
+                }
             };
             request(options, function (error, response) {
                 if (error) throw new Error(error);
