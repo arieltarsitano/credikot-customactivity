@@ -26,7 +26,6 @@
             "body": "",
             "header": "",
             "format": "json",
-            "useJwt": false,
             "timeout": 10000
         }
     },
