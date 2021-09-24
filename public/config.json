@@ -17,7 +17,7 @@
         "execute": {
            "inArguments":[
              {
-                "emailAddress": "{{Event.2f87ee50-8194-4aaf-bf2a-2a305b8c8309.Email}}"
+                "emailAddress": "{{Contact.Attribute.Leads_DataExtension.Email}}"
               }
            ],
           "outArguments": [],
