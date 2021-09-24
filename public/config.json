@@ -17,7 +17,7 @@
         "execute": {
            "inArguments":[
              {
-                "emailAddress": "{{Contact.Attribute.Leads_DataExtension.Email}}"
+                "emailAddress": "Hola"
               }
            ],
           "outArguments": [],
