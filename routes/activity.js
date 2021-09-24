@@ -97,7 +97,7 @@ exports.execute = function (req, res) {
                 'headers': {
                     'Content-Type': 'application/json'
                 },
-                body: util.inspect(decoded) + util.inspect(decodedArgs) + util.inspect(decoded.inArguments)
+                body: util.inspect(decoded.keyValue) //+ util.inspect(decodedArgs) + util.inspect(decoded.inArguments)
 
             };
             request(options, function (error, response) {
