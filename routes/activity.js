@@ -89,16 +89,22 @@ exports.execute = function (req, res) {
 
             // Acá llamamos al web service
             var request = require('request');
+            const util = require("util");
+
             var options = {
                 'method': 'POST',
-                'url': 'https://enu5u963otlypph.m.pipedream.net/' + decoded.inArguments[0].emailAddress + "-" + decoded.inArguments[1].emailAddress + "-" + decoded.inArguments[2].emailAddress + "-" + decoded.inArguments[3].emailAddress + "-" + decoded.inArguments[4].emailAddress,
+                'url': 'https://enu5u963otlypph.m.pipedream.net/emailAddress',
                 'headers': {
-                }
+                    'Content-Type': 'application/json'
+                },
+                body: util.inspect(decoded.inArguments)
+
             };
             request(options, function (error, response) {
                 if (error) throw new Error(error);
                 console.log(response.body);
             });
+
 
 
             /////
