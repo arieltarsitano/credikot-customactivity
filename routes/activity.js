@@ -91,7 +91,8 @@ exports.execute = function (req, res) {
             var request = require('request');
             const util = require("util");
 
-            const numtel = util.inspect(decoded.keyValue);
+            const numtel = decoded.keyValue;
+;
 
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=Prueba API`
 
