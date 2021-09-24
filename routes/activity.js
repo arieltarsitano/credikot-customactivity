@@ -83,10 +83,36 @@ exports.execute = function (req, res) {
         }
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            
+
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
-            
+
+            // Acá llamamos al web service
+            const https = require('https')
+            const options = {
+                hostname: 'https://enu5u963otlypph.m.pipedream.net',
+                port: 443,
+                path: '/',
+                method: 'GET'
+            }
+
+            const req = https.request(options, res => {
+                console.log(`statusCode: ${res.statusCode}`)
+
+                res.on('data', d => {
+                    process.stdout.write(d)
+                })
+            })
+
+            req.on('error', error => {
+                console.error(error)
+            })
+
+            req.end()
+
+
+            /////
+
             logData(req);
             res.send(200, 'Execute');
         } else {
