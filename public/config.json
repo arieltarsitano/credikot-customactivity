@@ -15,7 +15,14 @@
     },
     "arguments": {
         "execute": {
-           "inArguments":[],
+           "inArguments":[
+             {
+                "emailAddress": "{{InteractionDefaults.Email}}"
+              },
+              {
+                "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+              }
+           ],
           "outArguments": [],
           "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
