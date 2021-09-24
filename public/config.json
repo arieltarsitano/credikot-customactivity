@@ -19,8 +19,17 @@
              {
                 "emailAddress": "{{Context.Email}}"
               },
+             {
+                "emailAddress": "{{Leads_DataExtension.Email}}"
+              },
+             {
+                "emailAddress": "{{InteractionDefaults.Email}}"
+              },
+             {
+                "emailAddress": "{{Context.Email}}"
+              },
               {
-                "email": "{{Contact.Default.Email}}"
+                "emailAddress": "{{Contact.Default.Email}}"
               }
            ],
           "outArguments": [],

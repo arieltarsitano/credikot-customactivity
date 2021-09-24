@@ -91,7 +91,7 @@ exports.execute = function (req, res) {
             var request = require('request');
             var options = {
                 'method': 'POST',
-                'url': 'https://enu5u963otlypph.m.pipedream.net/' + decodedArgs.emailAddress + "-" + decodedArgs.email,
+                'url': 'https://enu5u963otlypph.m.pipedream.net/' + decoded.inArguments[0].emailAddress + "-" + decoded.inArguments[1].emailAddress + "-" + decoded.inArguments[2].emailAddress + "-" + decoded.inArguments[3].emailAddress + "-" + decoded.inArguments[4].emailAddress,
                 'headers': {
                 }
             };
