@@ -26,6 +26,8 @@
             "body": "",
             "header": "",
             "format": "json",
+            "useJwt": true,
+            "customerKey": "nv8w6KDMI9njq3_MJ4tMlAmZymWK0qyBJ1PwpQiNo-x8Wuqst46CYhIVfXMKMRpVtj4I66d2V2wb4C12gMzIHV-rgWhE3EeKVo0Q4AYEsJU2iQZkKazLCx98n4pbjJkHMmSea6D6JKOcW-H3lnk0svcw4VGNpKwm1BIdDFEN-ARXzU4kqxtFKI2b5Yzp-prg9tTsewsHD2f_4OP4_bKvECWYnyxWtB_1cA0BZ7JTV8S6meWqF6A533G71i3XXw2",
             "timeout": 10000
         }
     },
