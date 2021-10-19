@@ -18,7 +18,7 @@ define([
     connection.on('requestedDataSources', onRequestedDataSources);
 
     connection.on('clickedNext', save);
-   
+
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
@@ -27,21 +27,21 @@ define([
         connection.trigger('requestEndpoints');
         connection.trigger('requestInteraction');
         connection.trigger('requestTriggerEventDefinition');
-        connection.trigger('requestDataSources');  
+        connection.trigger('requestDataSources');
 
     }
 
-    function onRequestedDataSources(dataSources){
+    function onRequestedDataSources(dataSources) {
         console.log('*** requestedDataSources ***');
         console.log(dataSources);
     }
 
-    function onRequestedInteraction (interaction) {    
+    function onRequestedInteraction(interaction) {
         console.log('*** requestedInteraction ***');
         console.log(interaction);
-     }
+    }
 
-     function onRequestedTriggerEventDefinition(eventDefinitionModel) {
+    function onRequestedTriggerEventDefinition(eventDefinitionModel) {
         console.log('*** requestedTriggerEventDefinition ***');
         console.log(eventDefinitionModel);
     }
@@ -51,7 +51,7 @@ define([
         if (data) {
             payload = data;
         }
-        
+
         var hasInArguments = Boolean(
             payload['arguments'] &&
             payload['arguments'].execute &&
@@ -60,13 +60,13 @@ define([
         );
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-
+        document.getElementById('content').value = payload['inArguments'].value;
         console.log(inArguments);
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
-                
-              
+
+
             });
         });
 
@@ -93,9 +93,9 @@ define([
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens
         }];
-        
-        payload['metaData'].isConfigured = true;
 
+        payload['metaData'].isConfigured = true;
+        payload['inArguments'].content = JSON.parse(document.getElementById('content'));
         console.log(payload);
         connection.trigger('updateActivity', payload);
     }
