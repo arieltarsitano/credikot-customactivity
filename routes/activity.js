@@ -92,8 +92,8 @@ exports.execute = function (req, res) {
             const util = require("util");
 
             const numtel = decoded.keyValue;
-;
-            const texto = 'SMS masivo conectado a Salesforce';
+
+            const texto = document.getElementById('content').value;
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${texto}`
 
             var options = {
