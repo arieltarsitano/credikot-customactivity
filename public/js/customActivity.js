@@ -60,7 +60,7 @@ define([
         );
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-        document.getElementById('content').value = payload['inArguments'].value;
+        document.getElementById('content').value = JSON.stringify(payload['inArguments'].value);
         console.log(inArguments);
 
         $.each(inArguments, function (index, inArgument) {
