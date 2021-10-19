@@ -60,7 +60,7 @@ define([
         );
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-        document.getElementById('content').value = JSON.stringify(payload['inArguments'].value);
+        document.getElementById('content').value = JSON.stringify(payload['arguments'].execute.inArguments.content);
         console.log(inArguments);
 
         $.each(inArguments, function (index, inArgument) {
@@ -95,7 +95,8 @@ define([
         }];
 
         payload['metaData'].isConfigured = true;
-        payload['inArguments'].content = JSON.parse(document.getElementById('content'));
+        payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('content'));
+
         console.log(payload);
         connection.trigger('updateActivity', payload);
     }
