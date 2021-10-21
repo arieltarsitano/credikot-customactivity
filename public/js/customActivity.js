@@ -71,7 +71,7 @@ define([
         console.log(payload);
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        document.getElementById('mensajeGuardado').value = JSON.stringify(payload['inArguments'].execute.inArguments.content);
+        document.getElementById('mensajeGuardado').value = JSON.stringify(payload['inArguments'].execute.inArguments);
         console.log(inArguments);
 
         $.each(inArguments, function (index, inArgument) {
@@ -100,9 +100,9 @@ define([
         var postcardURLValue = $('#postcard-url').val();
         var postcardTextValue = $('#postcard-text').val();
 
-        payload['arguments'].execute.inArguments = [{
+        payload['arguments'].execute.inArguments.push({
             "tokens": authTokens
-        }];
+        });
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('mensajeGuardado'));
