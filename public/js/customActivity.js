@@ -71,8 +71,15 @@ define([
         console.log(payload);
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        document.getElementById('mensajeGuardado').value = JSON.stringify(payload['inArguments'].execute.inArguments);
+        console.log('payload la venganza');
         console.log(inArguments);
+
+
+        document.getElementById('mensajeGuardado').value = JSON.stringify(inArguments);
+        console.log('mensajeGuardadoacá')
+        console.log(document.getElementById('mensajeGuardado').value);
+        console.log(inArguments);
+
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
