@@ -17,7 +17,8 @@
         "execute": {
            "inArguments":[
              {
-                "phone": "1131187672"
+                "phone": "1131187672",
+                "nombre":"pepito"
               }
            ],
           "outArguments": [],
