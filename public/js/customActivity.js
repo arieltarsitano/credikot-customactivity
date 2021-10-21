@@ -111,7 +111,7 @@ define([
         console.log(payload.arguments.execute.inArguments);
 
         payload['arguments'].execute.inArguments.push({
-            "tokens": authTokens
+            "tokens": 'hola'
         });
 
         payload['metaData'].isConfigured = true;
