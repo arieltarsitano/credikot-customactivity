@@ -100,6 +100,9 @@ define([
         var postcardURLValue = $('#postcard-url').val();
         var postcardTextValue = $('#postcard-text').val();
 
+        console.log('se mete a save');
+        console.log(data.arguments.execute.inArguments);
+
         payload['arguments'].execute.inArguments.push({
             "tokens": authTokens
         });
