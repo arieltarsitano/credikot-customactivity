@@ -47,6 +47,7 @@ define([
     }
 
     function initialize(data) {
+        console.log('qué ondis');
         console.log(data);
         if (data) {
             payload = data;
@@ -60,6 +61,7 @@ define([
         );
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
+
         document.getElementById('content').value = JSON.stringify(payload['arguments'].execute.inArguments.content);
         console.log(inArguments);
 
