@@ -60,9 +60,11 @@ define([
             payload['arguments'].execute.inArguments.length > 0
         );
 
+        console.log('payload acá');
+        console.log(payload);
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        document.getElementById('content').value = JSON.stringify(payload['arguments'].execute.inArguments.content);
+        document.getElementById('mensajeGuardado').value = JSON.stringify(payload['arguments'].execute.inArguments.content);
         console.log(inArguments);
 
         $.each(inArguments, function (index, inArgument) {
@@ -96,7 +98,7 @@ define([
         }];
 
         payload['metaData'].isConfigured = true;
-        payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('content'));
+        payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('mensajeGuardado'));
 
         console.log(payload);
         connection.trigger('updateActivity', payload);
