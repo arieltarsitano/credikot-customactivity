@@ -17,9 +17,8 @@
         "execute": {
            "inArguments":[
              {
-                "phone": "1131187672",
-                "nombre":"pepito"
-              }
+                
+             }
            ],
           "outArguments": [],
           "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute",
