@@ -50,8 +50,11 @@ define([
         console.log('qué ondis');
         console.log(data.arguments.execute);
 
-        console.log('qué ondis');
-        console.log(data.arguments.execute.inArguments[0]);
+        console.log('qué ondis2');
+        console.log(data.arguments.execute.inArguments);
+
+        console.log('qué ondis3');
+        console.log(data.arguments.execute.inArguments.content);
 
         if (data) {
             payload = data;
@@ -68,7 +71,7 @@ define([
         console.log(payload);
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        document.getElementById('mensajeGuardado').value = JSON.stringify(payload['arguments'].execute.inArguments.content);
+        document.getElementById('mensajeGuardado').value = JSON.stringify(payload['inArguments'].execute.inArguments.content);
         console.log(inArguments);
 
         $.each(inArguments, function (index, inArgument) {
