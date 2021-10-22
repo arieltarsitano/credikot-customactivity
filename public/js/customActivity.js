@@ -121,7 +121,8 @@ define([
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = JSON.parse(document.getElementById('content'));
 
-        console.log(payload);
+        console.log('se mete a save2222222');
+        console.log(payload.arguments.execute.inArguments);
         connection.trigger('updateActivity', payload);
     }
 
