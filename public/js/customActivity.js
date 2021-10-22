@@ -76,7 +76,7 @@ define([
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        contenidoMensaje = contenidoMensaje.replaceAll('\n', '\\n');
+        contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
