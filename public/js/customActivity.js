@@ -76,7 +76,7 @@ define([
 
 
         //console.log(inArguments[0].Mensaje);
-        document.getElementById('content').value = (JSON.stringify(inArguments[0].Mensaje)).replace('"', '');
+        document.getElementById('content').value = (JSON.stringify(inArguments[0].Mensaje)).replaceAll('"', '');
         console.log('mensajeGuardadoacá')
         console.log(document.getElementById('content').value);
         //console.log(inArguments);
