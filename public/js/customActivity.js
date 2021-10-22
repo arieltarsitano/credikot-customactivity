@@ -111,9 +111,11 @@ define([
         console.log('se mete a save');
         console.log(payload.arguments.execute.inArguments);
 
+        /*
         payload['arguments'].execute.inArguments.push({
             "tokens": 'hola'
         });
+        */
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('content'));
