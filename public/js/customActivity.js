@@ -119,7 +119,8 @@ define([
         */
 
         payload['metaData'].isConfigured = true;
-        payload['arguments'].execute.inArguments[0].Mensaje = JSON.parse(document.getElementById('content'));
+        //payload['arguments'].execute.inArguments[0].Mensaje = JSON.parse(document.getElementById('content'));
+        payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
 
         console.log('se mete a save2222222');
         console.log(payload.arguments.execute.inArguments);
