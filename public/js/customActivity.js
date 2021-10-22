@@ -75,11 +75,11 @@ define([
         console.log(inArguments);
 
 
-        console.log(inArguments[0].Mensaje);
+        //console.log(inArguments[0].Mensaje);
         document.getElementById('content').value = JSON.stringify(inArguments[0].Mensaje);
         console.log('mensajeGuardadoacá')
         console.log(document.getElementById('content').value);
-        console.log(inArguments);
+        //console.log(inArguments);
 
 
         $.each(inArguments, function (index, inArgument) {
@@ -119,7 +119,7 @@ define([
         */
 
         payload['metaData'].isConfigured = true;
-        payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('content'));
+        payload['arguments'].execute.inArguments[0].Mensaje = JSON.parse(document.getElementById('content'));
 
         console.log(payload);
         connection.trigger('updateActivity', payload);
