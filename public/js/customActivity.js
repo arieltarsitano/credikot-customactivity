@@ -75,7 +75,7 @@ define([
         console.log(inArguments);
 
 
-        document.getElementById('content').value = JSON.stringify(inArguments);
+        document.getElementById('content').value = JSON.stringify(inArguments.Mensaje);
         console.log('mensajeGuardadoacá')
         console.log(document.getElementById('content').value);
         console.log(inArguments);
