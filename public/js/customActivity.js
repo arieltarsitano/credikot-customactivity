@@ -74,12 +74,9 @@ define([
         console.log('payload la venganza');
         console.log(inArguments);
 
-
-        //console.log(inArguments[0].Mensaje);
-        document.getElementById('content').value = (JSON.stringify(inArguments[0].Mensaje)).replaceAll('"', '');
-        console.log('mensajeGuardadoacá')
-        console.log(document.getElementById('content').value);
-        //console.log(inArguments);
+        var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
+        var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
+        document.getElementById('content').value = contenidoMensaje;
 
 
         $.each(inArguments, function (index, inArgument) {
