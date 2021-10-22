@@ -17,11 +17,8 @@
         "execute": {
            "inArguments":[
              {
-                "phone": "1131187672"
+               "Mensaje":"Bienvenidos a Credikot"
                 
-              },
-              {
-                "nombre":"pepito"
               }
            ],
           "outArguments": [],

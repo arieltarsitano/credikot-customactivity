@@ -75,9 +75,9 @@ define([
         console.log(inArguments);
 
 
-        document.getElementById('mensajeGuardado').value = JSON.stringify(inArguments);
+        document.getElementById('content').value = JSON.stringify(inArguments);
         console.log('mensajeGuardadoacá')
-        console.log(document.getElementById('mensajeGuardado').value);
+        console.log(document.getElementById('content').value);
         console.log(inArguments);
 
 
@@ -104,6 +104,7 @@ define([
     }
 
     function save() {
+
         var postcardURLValue = $('#postcard-url').val();
         var postcardTextValue = $('#postcard-text').val();
 
@@ -115,7 +116,7 @@ define([
         });
 
         payload['metaData'].isConfigured = true;
-        payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('mensajeGuardado'));
+        payload['arguments'].execute.inArguments.content = JSON.parse(document.getElementById('content'));
 
         console.log(payload);
         connection.trigger('updateActivity', payload);
