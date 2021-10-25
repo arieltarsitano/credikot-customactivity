@@ -94,7 +94,8 @@ exports.execute = function (req, res) {
             const numtel = decoded.keyValue;
 
             const texto = document.getElementById('mensajeGuardado').value;
-            const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${texto}`
+            const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=holis`
+
             console.log(texto);
             var options = {
                 'method': 'POST',
