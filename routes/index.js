@@ -1,11 +1,5 @@
 'use strict';
 
-var textoMora1 = "Tipo de mora 1";
-var textoMora2 = "Tipo de mora 2";
-var textoMora3 = "Tipo de mora 3";
-var textoMora4 = "Tipo de mora 4";
-var textoMora5 = "Tipo de mora 5";
-
 //Deps
 var activity = require('./activity');
 
