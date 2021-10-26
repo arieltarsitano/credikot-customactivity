@@ -110,8 +110,6 @@ exports.execute = function (req, res) {
                 console.log(response.body);
             });
 
-
-
             /////
 
             logData(req);
