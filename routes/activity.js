@@ -91,9 +91,19 @@ exports.execute = function (req, res) {
             var request = require('request');
             const util = require("util");
 
+            const json = require('../public/config.json');
+            console.log('acá json');
+
+            console.log(json);
+
+            console.log('acá decoded');
+
+            console.log(decoded);
+
             const numtel = decoded.keyValue;
 
-            const texto = document.getElementById('content').value;
+
+            //const texto = document.getElementById('content').value;
             //const texto = 'texto';
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${texto}`
             console.log('se envió el mensaje bien');
