@@ -6,6 +6,8 @@ html {
   background: #ffffff;
 }
 .tituloMensaje {
+  align-content: center;
+  margin-bottom: 5%;
 }
 
 .areaTexto {
