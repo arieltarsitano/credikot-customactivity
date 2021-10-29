@@ -83,8 +83,8 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content').value = nombrePersona;
-        document.getElementById('content').value = monto;
+        //document.getElementById('content').value = nombrePersona;
+        //document.getElementById('content').value = monto;
 
 
 
