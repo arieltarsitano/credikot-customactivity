@@ -76,18 +76,31 @@ define([
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        //var nombrePersona = (JSON.stringify(inArguments[0].Nombre)).substring(1, tamJson - 1);
-        //var monto = (JSON.stringify(inArguments[0].Monto)).substring(1, tamJson - 1);
+        var Nombre = (JSON.stringify(inArguments[0].Nombre));
+        var Monto = (JSON.stringify(inArguments[0].Monto));
+
+        var Datos = DataExtension.Init("Datos");
+        var complexfilter = {
+            LeftOperand: {
+                Property: "Nombre",
+                SimpleOperator: "equals",
+                Value: Nombre
+            },
+            LogicalOperator: "AND",
+            RightOperand: {
+                Property: "Monto",
+                SimpleOperator: "greater than",
+                Value: Monto
+            }
+        };
+
+        var moredata = Datos.Rows.Retrieve(complexfilter);
 
         contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        //document.getElementById('content').value = nombrePersona;
-        //document.getElementById('content').value = monto;
-
-
-
+        document.getElementById('content2').value = Nombre;
 
 
         $.each(inArguments, function (index, inArgument) {
@@ -128,10 +141,14 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+        payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
 
         console.log('se mete a save2222222');
         console.log(payload.arguments.execute.inArguments);
         connection.trigger('updateActivity', payload);
+
+        console.log('NOMBRE:');
+        console.log(payload.arguments.execute.inArguments);
     }
 
 

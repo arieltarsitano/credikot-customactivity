@@ -95,8 +95,6 @@ exports.execute = function (req, res) {
             console.log(decoded);
 
             const numtel = decoded.keyValue;
-            const persona = decoded.nombrePersona
-
 
             //const texto = document.getElementById('content').value;
             const texto = decoded.inArguments[0].Mensaje;
