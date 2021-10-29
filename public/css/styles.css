@@ -12,9 +12,9 @@ html {
 }
 
 .areaTexto {
-  width: 400px;
+  width: 350px;
   height: 105px;
   padding: 100%;
-  padding-right: 175%;
+  /*padding-right: 175%;*/
   border: black;
 }
