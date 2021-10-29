@@ -141,14 +141,14 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
+        //payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
 
         console.log('se mete a save2222222');
         console.log(payload.arguments.execute.inArguments);
         connection.trigger('updateActivity', payload);
 
-        console.log('NOMBRE:');
-        console.log(payload.arguments.execute.inArguments);
+        //console.log('NOMBRE:');
+        //console.log(payload.arguments.execute.inArguments);
     }
 
 

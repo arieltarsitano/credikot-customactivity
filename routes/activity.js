@@ -99,8 +99,7 @@ exports.execute = function (req, res) {
             //const texto = document.getElementById('content').value;
             const texto = decoded.inArguments[0].Mensaje;
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${texto}`
-            console.log('se envió el mensaje bien');
-            console.log(texto);
+
             var options = {
                 'method': 'POST',
                 'url': urlSmsMasivo,
