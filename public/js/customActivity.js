@@ -82,12 +82,9 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
-        if (tamJson != null && tamJson != undefined) {
-            document.getElementById('content').value = contenidoMensaje;
-            document.getElementById('content').value = nombrePersona;
-            document.getElementById('content').value = monto;
-
-        }
+        document.getElementById('content').value = contenidoMensaje;
+        document.getElementById('content').value = nombrePersona;
+        document.getElementById('content').value = monto;
 
 
 
