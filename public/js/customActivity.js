@@ -76,8 +76,8 @@ define([
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        var nombrePersona = (JSON.stringify(inArguments[0].Nombre)).substring(1, tamJson - 1);
-        var monto = (JSON.stringify(inArguments[0].Monto)).substring(1, tamJson - 1);
+        //var nombrePersona = (JSON.stringify(inArguments[0].Nombre)).substring(1, tamJson - 1);
+        //var monto = (JSON.stringify(inArguments[0].Monto)).substring(1, tamJson - 1);
 
         contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
