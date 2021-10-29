@@ -17,8 +17,10 @@
         "execute": {
            "inArguments":[
              {
-               "Mensaje":"Bienvenidos a Credikot"
-  
+               "Mensaje":"Bienvenidos a Credikot",
+               "Nombre":"",
+               "Monto":""
+
               }
            ],
           "outArguments": [],
