@@ -67,18 +67,14 @@ define([
             payload['arguments'].execute.inArguments.length > 0
         );
 
-        console.log('payload acá');
-        console.log(payload);
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-
-        console.log('payload la venganza');
-        console.log(inArguments);
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        var Nombre = (JSON.stringify(inArguments[0].Nombre));
-        var Monto = (JSON.stringify(inArguments[0].Monto));
+        //var Nombre = (JSON.stringify(inArguments[0].Nombre));
+        //var Monto = (JSON.stringify(inArguments[0].Monto));
 
+        /*
         var Datos = DataExtension.Init("Datos");
         var complexfilter = {
             LeftOperand: {
@@ -95,12 +91,13 @@ define([
         };
 
         var moredata = Datos.Rows.Retrieve(complexfilter);
+        */
 
         contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content2').value = Nombre;
+        //document.getElementById('content2').value = Nombre;
 
 
         $.each(inArguments, function (index, inArgument) {
