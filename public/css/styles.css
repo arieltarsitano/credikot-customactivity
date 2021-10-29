@@ -14,7 +14,7 @@ html {
 .areaTexto {
   width: 350px;
   height: 105px;
-  padding: 100%;
+  /*padding: 100%;*/
   /*padding-right: 175%;*/
   border: black;
 }
