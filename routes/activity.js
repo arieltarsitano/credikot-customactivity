@@ -93,6 +93,8 @@ exports.execute = function (req, res) {
 
             console.log('acá decoded');
             console.log(decoded);
+            console.log('acá decodedArgs');
+            console.log(decodedArgs);
 
             const numtel = decoded.keyValue;
             const nombre = decoded.Nombre;
@@ -100,6 +102,7 @@ exports.execute = function (req, res) {
 
             console.log(nombre);
             console.log(monto);
+
 
             //const texto = document.getElementById('content').value;
 
