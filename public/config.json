@@ -15,30 +15,12 @@
     },
     "arguments": {
         "execute": {
-           "inArguments":[
-             {
-               "Mensaje":"Bienvenidos a Credikot"
-              },
-              {
-                "Nombre":
-                {
-                  "dataType": "Text",
-                  "isNullable": false,
-                  "direction": "In"
-                }
-              },
-              {
-                "Monto":"4444"
-              }              
-           ],
-          "outArguments": [],
-          "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute",
-           "verb": "POST",
-            "body": "",
-            "header": "",
-            "format": "json",
-            "useJwt": true,
-            "timeout": 10000
+          "inArguments":[
+            { "Mensaje":"Bienvenidos a Credikot" },
+            { "Nombre":"123" },
+            { "Monto":"4444" }
+          ],
+         "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute"
         }
     },
     "configurationArguments": {
