@@ -18,8 +18,8 @@
            "inArguments":[
              {
                "Mensaje":"Bienvenidos a Credikot",
-               "Nombre":"",
-               "Monto":""
+               "Nombre":"123",
+               "Monto":"4444"
               }
            ],
           "outArguments": [],

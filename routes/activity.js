@@ -92,10 +92,14 @@ exports.execute = function (req, res) {
             const util = require("util");
 
             console.log('acá decoded');
-            console.log('acá decoded');
             console.log(decoded);
 
             const numtel = decoded.keyValue;
+            const nombre = decoded.Nombre;
+            const monto = decoded.Monto;
+
+            console.log(nombre);
+            console.log(monto);
 
             //const texto = document.getElementById('content').value;
 
