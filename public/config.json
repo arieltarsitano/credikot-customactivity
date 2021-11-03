@@ -21,6 +21,7 @@
                "Nombre":"123",
                "Monto":"4444"
               }
+              
            ],
           "outArguments": [],
           "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute",
