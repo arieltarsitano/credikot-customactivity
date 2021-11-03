@@ -20,7 +20,12 @@
                "Mensaje":"Bienvenidos a Credikot"
               },
               {
-                "Nombre":"123"
+                "Nombre":
+                {
+                  "dataType": "Text",
+                  "isNullable": false,
+                  "direction": "In"
+                }
               },
               {
                 "Monto":"4444"
