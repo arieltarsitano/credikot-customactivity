@@ -74,6 +74,11 @@ define([
         var nombre = (JSON.stringify(inArguments[0].Nombre));
         var monto = (JSON.stringify(inArguments[0].Monto));
 
+        console.log('nombre acá');
+        console.log(nombre);
+        console.log('monto acá');
+        console.log(monto);
+
 
         /*
         var Datos = DataExtension.Init("Datos");
@@ -98,8 +103,8 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content2').value = nombre;
-        document.getElementById('content2').value = monto;
+        //document.getElementById('content2').value = nombre;
+        document.getElementById('content2').value = nombre + ' ' + monto;
 
 
 
@@ -141,8 +146,8 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        //payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
-        //payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
+        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
+        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
 
         //payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
         //payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2').value;
