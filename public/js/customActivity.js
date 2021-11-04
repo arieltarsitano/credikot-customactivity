@@ -71,8 +71,9 @@ define([
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        //var Nombre = (JSON.stringify(inArguments[0].Nombre));
-        //var Monto = (JSON.stringify(inArguments[0].Monto));
+        var nombre = (JSON.stringify(inArguments[0].Nombre));
+        var monto = (JSON.stringify(inArguments[0].Monto));
+
 
         /*
         var Datos = DataExtension.Init("Datos");
@@ -97,7 +98,8 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        //document.getElementById('content2').value = Nombre;
+        document.getElementById('content').value = nombre;
+        document.getElementById('content').value = monto;
 
 
         $.each(inArguments, function (index, inArgument) {
@@ -139,6 +141,7 @@ define([
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
         payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}"
+
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}"
 
         console.log('se mete a save2222222');
