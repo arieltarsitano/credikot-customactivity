@@ -147,8 +147,8 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Nombre}}";
+        payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}");
+        payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}");
 
         // payload['arguments'].execute.outArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
         // payload['arguments'].execute.outArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
