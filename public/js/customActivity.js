@@ -71,13 +71,15 @@ define([
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        var nombre = (JSON.stringify(inArguments[0].Nombre));
-        var monto = (JSON.stringify(inArguments[0].Monto));
+        // var nombre = (JSON.stringify(outArguments[0].Nombre));
+        //var monto = (JSON.stringify(outArguments[0].Monto));
 
+        /*
         console.log('nombre acá');
         console.log(nombre);
         console.log('monto acá');
         console.log(monto);
+*/
 
         /*
         var Datos = DataExtension.Init("Datos");
@@ -145,16 +147,18 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
-        payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2').value;
+        // payload['arguments'].execute.outArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
+        // payload['arguments'].execute.outArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
 
-        //payload['arguments'].execute.outArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
-        //payload['arguments'].execute.outArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
+        //payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
+        //payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2').value;
 
         console.log('se mete a save2222222');
         console.log(payload.arguments.execute.inArguments);
         connection.trigger('updateActivity', payload);
 
+        //console.log('NOMBRE:');
+        //console.log(payload.arguments.execute.inArguments);
     }
 
 

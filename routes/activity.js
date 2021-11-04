@@ -82,7 +82,7 @@ exports.execute = function (req, res) {
             return res.status(401).end();
         }
 
-        if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
+        if (decoded && decoded.inArguments && decoded.outArguments && decoded.inArguments.length > 0 && decoded.outArguments.length > 0) {
 
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
@@ -98,8 +98,8 @@ exports.execute = function (req, res) {
 
             const numtel = decoded.keyValue;
             const nombre = decoded.inArguments[0].Nombre;
-            const monto = decoded.inArguments[0].Monto;
-            const texto = decoded.inArguments[0].Mensaje;
+            const monto = decoded.outArguments[0].Monto;
+            const texto = decoded.outArguments[0].Mensaje;
 
             console.log('Nombre');
             console.log(nombre);
