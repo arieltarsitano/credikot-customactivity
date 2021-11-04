@@ -18,7 +18,7 @@
            "inArguments":[
              {
                "Mensaje":"Bienvenidos a Credikot",
-               "Nombre":"{{Contact.key}}",
+               "Nombre":"{{Contact.Key}}",
                "Monto":"15000"
               }
             ],
