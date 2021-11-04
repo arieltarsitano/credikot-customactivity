@@ -98,8 +98,8 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content').value = nombre;
-        document.getElementById('content').value = monto;
+        document.getElementById('content2').value = nombre;
+        document.getElementById('content2').value = monto;
 
 
         $.each(inArguments, function (index, inArgument) {
@@ -140,8 +140,8 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content', "{{Contact.Attribute.Mora.Nombre}}").value;
-        payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content', "{{Contact.Attribute.Mora.Monto}}").value;
+        payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}").value;
+        payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2', "{{Contact.Attribute.Mora.Monto}}").value;
 
         console.log('se mete a save2222222');
         console.log(payload.arguments.execute.inArguments);
