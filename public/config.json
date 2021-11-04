@@ -18,8 +18,8 @@
            "inArguments":[
              {
                "Mensaje":"Bienvenidos a Credikot",
-               "Nombre":"123",
-               "Monto":"4444"
+               "Nombre":"{{Contact.Attribute.Mora.Nombre}}",
+               "Monto":"{{Contact.Attribute.Mora.Monto}}"
               }
            ],
           "outArguments": [],
