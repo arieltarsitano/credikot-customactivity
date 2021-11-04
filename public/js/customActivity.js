@@ -53,8 +53,8 @@ define([
         console.log('qué ondis2');
         console.log(data.arguments.execute.inArguments);
 
-        console.log('qué ondis3');
-        console.log(data.arguments.execute.inArguments.content);
+        console.log('qué ondis4');
+        console.log(data.arguments.execute.outArguments);
 
         if (data) {
             payload = data;
@@ -71,8 +71,8 @@ define([
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        var nombre = (JSON.stringify(inArguments[0].Nombre));
-        var monto = (JSON.stringify(inArguments[0].Monto));
+        var nombre = (JSON.stringify(outArguments[0].Nombre));
+        var monto = (JSON.stringify(outArguments[0].Monto));
 
         console.log('nombre acá');
         console.log(nombre);
@@ -146,8 +146,8 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
+        // payload['arguments'].execute.outArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
+        // payload['arguments'].execute.outArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
 
         //payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
         //payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2').value;

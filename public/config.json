@@ -17,12 +17,15 @@
         "execute": {
            "inArguments":[
              {
-               "Mensaje":"Bienvenidos a Credikot",
-               "Nombre":"{{Contact.Attribute.Mora.Nombre}}",
-               "Monto":"{{Contact.Attribute.Mora.Monto}}"
+               "Mensaje":"Bienvenidos a Credikot"
               }
-           ],
-          "outArguments": [],
+            ],
+            "outArguments": [
+              {
+                "Nombre":"{{Contact.Attribute.Mora.Nombre}}",
+                "Monto":"{{Contact.Attribute.Mora.Monto}}"
+              }
+          ],
           "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
             "body": "",
