@@ -102,6 +102,7 @@ define([
         document.getElementById('content2').value = monto;
 
 
+
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
 
@@ -140,8 +141,8 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
+        //payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
+        //payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
 
         //payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2').value;
         //payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2').value;
