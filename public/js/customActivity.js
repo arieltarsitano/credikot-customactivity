@@ -147,14 +147,13 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}").value;
-        payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}").value;
+        payload['arguments'].execute.inArguments[0].MoraNombre = "{{Contact.Attribute.Mora.Nombre}}"
+        payload['arguments'].execute.inArguments[0].Key = "{{Contact.Key}}"
+        payload['arguments'].execute.inArguments[0].LastLogin = "{{Contact.Attribute.Engagement.LastLogin}}"
+        payload['arguments'].execute.inArguments[0].FromDE = "{{Contact.Attribute.30092021_Journey_Mora.FirstName}}"
 
-        // payload['arguments'].execute.outArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}";
-        // payload['arguments'].execute.outArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}";
 
-
-        console.log('se mete a save2222222');
+        console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
         connection.trigger('updateActivity', payload);
     }
