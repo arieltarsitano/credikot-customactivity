@@ -97,14 +97,7 @@ exports.execute = function (req, res) {
             console.log(decodedArgs);
 
             const numtel = decoded.keyValue;
-            const nombre = decoded.inArguments[0].Nombre;
-            const monto = decoded.inArguments[0].Monto;
-
-            console.log('Nombre');
-            console.log(nombre);
-            console.log(monto);
-
-
+            
             //const texto = document.getElementById('content').value;
 
             const texto = decoded.inArguments[0].Mensaje;

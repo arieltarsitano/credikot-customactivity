@@ -138,8 +138,11 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Mora.Nombre}}"
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Mora.Monto}}"
+        payload['arguments'].execute.inArguments[0].MoraNombre = "{{Contact.Attribute.Mora.Nombre}}"
+        payload['arguments'].execute.inArguments[0].Key = "{{Contact.Key}}"
+        payload['arguments'].execute.inArguments[0].LastLogin = "{{Contact.Attribute.Engagement.LastLogin}}"
+        payload['arguments'].execute.inArguments[0].FromDE = "{{Contact.Attribute.30092021_Journey_Mora.FirstName}}"
+        
 
         console.log('se mete a save2222222');
         console.log(payload.arguments.execute.inArguments);
