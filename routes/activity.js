@@ -100,7 +100,9 @@ exports.execute = function (req, res) {
 
             //const texto = document.getElementById('content').value;
 
-            const textoEntero = texto + ' ' + nombre + ' ' + monto;
+            //const textoEntero = texto + ' ' + nombre + ' ' + monto;
+            const textoEntero = '';
+
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
 
             var options = {
