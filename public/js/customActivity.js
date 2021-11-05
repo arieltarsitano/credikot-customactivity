@@ -144,7 +144,7 @@ define([
         payload['arguments'].execute.inArguments[0].FromDE = "{{Contact.Attribute.30092021_Journey_Mora.FirstName}}"
         
 
-        console.log('se mete a save2222222');
+        console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
         connection.trigger('updateActivity', payload);
 
