@@ -151,11 +151,9 @@ define([
         //payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}").value;
 
 
-        payload['arguments'].execute.inArguments[0].MoraNombre = "{{Contact.Attribute.Mora.Nombre}}"
         payload['arguments'].execute.inArguments[0].Key = "{{Contact.Key}}"
-        payload['arguments'].execute.inArguments[0].LastLogin = "{{Contact.Attribute.Engagement.LastLogin}}"
-        payload['arguments'].execute.inArguments[0].FromDE = "{{Contact.Attribute.30092021_Journey_Mora.Mora.Nombre}}"
-        payload['arguments'].execute.inArguments[0].FromDE2 = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
+        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
+        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
 
 
         console.log('JSON Despues de guardar las variables a enviar');
