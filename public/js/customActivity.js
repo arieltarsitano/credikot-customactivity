@@ -106,7 +106,7 @@ define([
 
         document.getElementById('content').value = contenidoMensaje;
         //document.getElementById('content2').value = nombre;
-        document.getElementById('content').value = nombre + ' ' + monto;
+        //document.getElementById('content').value = nombre + ' ' + monto;
 
 
 
