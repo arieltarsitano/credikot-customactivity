@@ -47,6 +47,7 @@ define([
     }
 
     function initialize(data) {
+        /*
         console.log('qué ondis');
         console.log(data.arguments.execute);
 
@@ -55,7 +56,7 @@ define([
 
         console.log('qué ondis4');
         console.log(data.arguments.execute.outArguments);
-
+    */
         if (data) {
             payload = data;
         }
