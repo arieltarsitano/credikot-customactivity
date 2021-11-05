@@ -97,12 +97,7 @@ exports.execute = function (req, res) {
             console.log(decodedArgs);
 
             const numtel = decoded.keyValue;
-            const nombre = decoded.inArguments[0].Nombre;
-            const monto = decoded.inArguments[0].Monto;
             const texto = decoded.inArguments[0].Mensaje;
-
-            //texto = texto.replace('{nombre}', nombre);
-            //texto = texto.replace('{monto}', monto);
 
             const textoEntero = texto;
 
@@ -123,7 +118,6 @@ exports.execute = function (req, res) {
             /////
 
             logData(req);
-            //res.send(200, 'Execute');
             res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');

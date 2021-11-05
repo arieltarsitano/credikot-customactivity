@@ -76,13 +76,6 @@ define([
         var monto = (JSON.stringify(inArguments[0].Monto));
 
         /*
-        console.log('nombre acá');
-        console.log(nombre);
-        console.log('monto acá');
-        console.log(monto);
-*/
-
-        /*
         var Datos = DataExtension.Init("Datos");
         var complexfilter = {
             LeftOperand: {
@@ -105,10 +98,6 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        //document.getElementById('content2').value = nombre;
-        //document.getElementById('content').value = nombre + ' ' + monto;
-
-
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
@@ -148,13 +137,10 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        // payload['arguments'].execute.inArguments[0].Nombre = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}").value;
-        //payload['arguments'].execute.inArguments[0].Monto = document.getElementById('content2', "{{Contact.Attribute.Mora.Nombre}}").value;
-
-
-        payload['arguments'].execute.inArguments[0].Key = "{{Contact.Key}}"
         payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
+        payload['arguments'].execute.inArguments[0].nroWPPC = "{{Contact.Attribute.30092021_Journey_Mora.nroWPPC}}"
+        payload['arguments'].execute.inArguments[0].linkWPPC = "{{Contact.Attribute.30092021_Journey_Mora.Monto.linkWPPC}}"
 
 
         console.log('JSON Despues de guardar las variables a enviar');
