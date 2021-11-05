@@ -101,7 +101,8 @@ exports.execute = function (req, res) {
             const monto = decoded.inArguments[0].Monto;
             const texto = decoded.inArguments[0].Mensaje;
 
-            //const texto = document.getElementById('content').value;
+            texto = texto.replace('{nombre}', nombre);
+            texto = texto.replace('{monto}', monto);
 
             const textoEntero = texto + ' ' + nombre + ' ' + monto;
 
