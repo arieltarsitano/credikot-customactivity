@@ -97,11 +97,13 @@ exports.execute = function (req, res) {
             console.log(decodedArgs);
 
             const numtel = decoded.keyValue;
+            const nombre = decoded.inArguments[0].Nombre;
+            const monto = decoded.inArguments[0].Monto;
+            const texto = decoded.inArguments[0].Mensaje;
 
             //const texto = document.getElementById('content').value;
 
-            //const textoEntero = texto + ' ' + nombre + ' ' + monto;
-            const textoEntero = '';
+            const textoEntero = texto + ' ' + nombre + ' ' + monto;
 
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
 
