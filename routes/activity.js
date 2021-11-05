@@ -101,10 +101,10 @@ exports.execute = function (req, res) {
             const monto = decoded.inArguments[0].Monto;
             const texto = decoded.inArguments[0].Mensaje;
 
-            texto = texto.replace('{nombre}', nombre);
-            texto = texto.replace('{monto}', monto);
+            //texto = texto.replace('{nombre}', nombre);
+            //texto = texto.replace('{monto}', monto);
 
-            const textoEntero = texto + ' ' + nombre + ' ' + monto;
+            const textoEntero = texto;// + ' ' + nombre + ' ' + monto;
 
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
 
