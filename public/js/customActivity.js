@@ -154,7 +154,8 @@ define([
         payload['arguments'].execute.inArguments[0].MoraNombre = "{{Contact.Attribute.Mora.Nombre}}"
         payload['arguments'].execute.inArguments[0].Key = "{{Contact.Key}}"
         payload['arguments'].execute.inArguments[0].LastLogin = "{{Contact.Attribute.Engagement.LastLogin}}"
-        payload['arguments'].execute.inArguments[0].FromDE = "{{Contact.Attribute.30092021_Journey_Mora.FirstName}}"
+        payload['arguments'].execute.inArguments[0].FromDE = "{{Contact.Attribute.30092021_Journey_Mora.Mora.Nombre}}"
+        payload['arguments'].execute.inArguments[0].FromDE2 = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
 
 
         console.log('JSON Despues de guardar las variables a enviar');
