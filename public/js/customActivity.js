@@ -135,8 +135,8 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
+        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.JourneyMoraCredikot.Nombre}}"
+        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.JourneyMoraCredikot.Monto}}"
         payload['arguments'].execute.inArguments[0].nroWPPC = "{{Contact.Attribute.JourneyMoraCredikot.nroWPPC}}"
         payload['arguments'].execute.inArguments[0].linkWPPC = "{{Contact.Attribute.JourneyMoraCredikot.linkWPPC}}"
 
