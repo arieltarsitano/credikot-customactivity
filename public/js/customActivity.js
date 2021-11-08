@@ -47,7 +47,7 @@ define([
     }
 
     function initialize(data) {
-        /*
+
         console.log('qué ondis');
         console.log(data.arguments.execute);
 
@@ -56,7 +56,7 @@ define([
 
         console.log('qué ondis4');
         console.log(data.arguments.execute.outArguments);
-    */
+
         if (data) {
             payload = data;
         }
@@ -139,8 +139,8 @@ define([
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
         payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
-        payload['arguments'].execute.inArguments[0].nroWPPC = "{{Contact.Attribute.30092021_Journey_Mora.nroWPPC}}"
-        payload['arguments'].execute.inArguments[0].linkWPPC = "{{Contact.Attribute.30092021_Journey_Mora.Monto.linkWPPC}}"
+        // payload['arguments'].execute.inArguments[0].nroWPPC = "{{Contact.Attribute.30092021_Journey_Mora.nroWPPC}}"
+        // payload['arguments'].execute.inArguments[0].linkWPPC = "{{Contact.Attribute.30092021_Journey_Mora.Monto.linkWPPC}}"
 
 
         console.log('JSON Despues de guardar las variables a enviar');

@@ -19,9 +19,7 @@
              {
                "Mensaje":"Bienvenidos a Credikot",
                "Nombre":"{{Contact.Attribute.30092021_Journey_Mora.Nombre}}",
-               "Monto":"{{Contact.Attribute.30092021_Journey_Mora.Monto}}",
-               "nroWPPC":"{{Contact.Attribute.30092021_Journey_Mora.nroWPPC}}",
-               "linkWPPC":"{{Contact.Attribute.30092021_Journey_Mora.linkWPPC}}"
+               "Monto":"{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
               }
             ],
             "outArguments": [
