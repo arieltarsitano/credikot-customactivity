@@ -72,8 +72,6 @@ define([
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
-        var nombre = (JSON.stringify(inArguments[0].Nombre));
-        var monto = (JSON.stringify(inArguments[0].Monto));
 
         /*
         var Datos = DataExtension.Init("Datos");
@@ -139,8 +137,8 @@ define([
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
         payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
-        payload['arguments'].execute.inArguments[0].nroWPPC = "{{Contact.Attribute.30092021_Journey_Mora.nroWPPC}}"
-        payload['arguments'].execute.inArguments[0].linkWPPC = "{{Contact.Attribute.30092021_Journey_Mora.linkWPPC}}"
+        payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
+        payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
 
 
         console.log('JSON Despues de guardar las variables a enviar');
