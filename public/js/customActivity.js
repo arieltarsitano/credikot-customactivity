@@ -135,10 +135,10 @@ define([
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.Journey_Mora_Credikot.Nombre}}"
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.Journey_Mora_Credikot.Monto}}"
-        payload['arguments'].execute.inArguments[0].nroWPPC = "{{Contact.Attribute.Journey_Mora_Credikot.nroWPPC}}"
-        payload['arguments'].execute.inArguments[0].linkWPPC = "{{Contact.Attribute.Journey_Mora_Credikot.linkWPPC}}"
+        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
+        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
+        payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
+        payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
 
 
         console.log('JSON Despues de guardar las variables a enviar');
