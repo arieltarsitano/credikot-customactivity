@@ -18,10 +18,10 @@
            "inArguments":[
              {
                "Mensaje":"Bienvenidos a Credikot",
-               "Nombre":"{{Contact.Attribute.JourneyMoraCredikot.Nombre}}",
-               "Monto":"{{Contact.Attribute.JourneyMoraCredikot.Monto}}",
-               "nroWPPC":"{{Contact.Attribute.JourneyMoraCredikot.nroWPPC}}",
-               "linkWPPC":"{{Contact.Attribute.JourneyMoraCredikot.linkWPPC}}"
+               "Nombre":"{{Contact.Attribute.Journey_Mora_Credikot.Nombre}}",
+               "Monto":"{{Contact.Attribute.Journey_Mora_Credikot.Monto}}",
+               "nroWPPC":"{{Contact.Attribute.Journey_Mora_Credikot.nroWPPC}}",
+               "linkWPPC":"{{Contact.Attribute.Journey_Mora_Credikot.linkWPPC}}"
               }
             ],
             "outArguments": [
