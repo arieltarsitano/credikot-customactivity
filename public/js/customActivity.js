@@ -75,7 +75,7 @@ define([
             payloadFechas['arguments'] &&
             payloadFechas['arguments'].execute &&
             payloadFechas['arguments'].execute.outArguments &&
-            payloadFechas['arguments'].execute.outArguments.Feriados.length > 0
+            payloadFechas['arguments'].execute.outArguments.length > 0
         );
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
