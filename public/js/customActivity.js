@@ -71,7 +71,7 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
-        var JsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
+        //var JsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
 
         /*
@@ -97,25 +97,27 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content').value = JsonFeriados;
-
-        var identificador = ',';
-
-        if (JsonFeriados != null) {
-            var partsArray = JsonFeriados.split(identificador);
-            var cont = 0;
-            var aux2 = partsArray.length;
-
-            while (aux2 > 0) {
-                partsArray[cont] = partsArray[cont].trim();
-                cont++;
-                aux2--;
-            }
-            console.log('Acá se muestran las fechas:');
-            console.log(partsArray[0]);
-            console.log(partsArray[1]);
-            console.log(partsArray[2]);
-        }
+        //document.getElementById('content').value = JsonFeriados;
+        /*
+                var identificador = ',';
+        
+                if (JsonFeriados != null) {
+                    var partsArray = JsonFeriados.split(identificador);
+                    var cont = 0;
+                    var aux2 = partsArray.length;
+        
+                    while (aux2 > 0) {
+                        partsArray[cont] = partsArray[cont].trim();
+                        cont++;
+                        aux2--;
+                    }
+                    console.log('Acá se muestran las fechas:');
+                    console.log(partsArray[0]);
+                    console.log(partsArray[1]);
+                    console.log(partsArray[2]);
+                }
+        
+                */
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
@@ -159,7 +161,7 @@ define([
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
         payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
-        payload['arguments'].execute.inArguments[0].Feriados = document.getElementById('content').value;
+        //payload['arguments'].execute.inArguments[0].Feriados = document.getElementById('content').value;
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
