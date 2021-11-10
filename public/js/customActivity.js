@@ -60,7 +60,6 @@ define([
 
         if (data) {
             payload = data;
-            payloadFechas = data;
         }
 
         var hasInArguments = Boolean(
@@ -70,19 +69,11 @@ define([
             payload['arguments'].execute.inArguments.length > 0
         );
 
-
-        var hasInArguments2 = Boolean(
-            payloadFechas['arguments'] &&
-            payloadFechas['arguments'].execute &&
-            payloadFechas['arguments'].execute.outArguments &&
-            payloadFechas['arguments'].execute.outArguments.length > 0
-        );
-
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-        var outArguments = hasInArguments2 ? payloadFechas['arguments'].execute.outArguments : {};
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
-        var JsonFeriados = (JSON.stringify(outArguments[0].Feriados)).length;
+        var JsonFeriados = (JSON.stringify(inArguments[0].Feriados));
+        var TamJsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
 
         /*
@@ -108,11 +99,11 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content').value = JsonFeriados;
-
+        document.getElementById('content2').value = JsonFeriados;
+        /*
         var identificador = ',';
 
-        if (JsonFeriados != null) {
+        if (JsonFeriados != null && JsonFeriados.length > 0) {
             var partsArray = JsonFeriados.split(identificador);
             var cont = 0;
             var aux2 = partsArray.length;
@@ -123,14 +114,14 @@ define([
                 aux2--;
             }
 
-            /*console.log('Acá se muestran las fechas:');
+            console.log('Acá se muestran las fechas:');
             
             console.log(partsArray[0]);
             console.log(partsArray[1]);
             console.log(partsArray[2]);
-            */
+            
         }
-
+        */
 
 
         $.each(inArguments, function (index, inArgument) {
@@ -168,10 +159,6 @@ define([
             "tokens": authTokens
         }];
 
-        payloadFechas['arguments'].execute.outArguments = [{
-            "tokens": authTokens
-        }];
-
 
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
@@ -179,16 +166,11 @@ define([
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
         payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
-        payloadFechas['arguments'].execute.outArguments[0].Feriados = document.getElementById('content').value;
+        payload['arguments'].execute.inArguments[0].Feriados = document.getElementById('content2').value;
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
         connection.trigger('updateActivity', payload);
-
-        console.log('JSON fechas:');
-        console.log(payloadFechas.arguments.execute.outArguments);
-
-
 
     }
 

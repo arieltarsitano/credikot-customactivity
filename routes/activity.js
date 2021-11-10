@@ -104,7 +104,9 @@ exports.execute = function (req, res) {
 
             const numtel = decoded.keyValue;
             const texto = decoded.inArguments[0].Mensaje;
-
+            const feriados = decoded.inArguments[0].Feriados;
+            console.log('acá feriados');
+            console.log(feriados);
             const textoEntero = texto;
 
             const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`

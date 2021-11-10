@@ -21,13 +21,11 @@
                "Nombre":"{{Contact.Attribute.30092021_Journey_Mora.Nombre}}",
                "Monto":"{{Contact.Attribute.30092021_Journey_Mora.Monto}}",
                "nroWPP":"{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}",
-               "linkWPP":"{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
+               "linkWPP":"{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}",
+               "Feriados":"Introduzca los días aquí"
               }
             ],
             "outArguments": [
-              {
-                "Feriados":"Introduzca los días aquí"
-              }
           ],
           "url": "https://credikot-customactivity-2.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
