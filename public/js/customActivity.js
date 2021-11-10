@@ -72,8 +72,8 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
-        var JsonFeriados = (JSON.stringify(inArguments[0].Feriados));
-        //var TamJsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
+        var TamJsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
+        var JsonFeriados = (JSON.stringify(inArguments[0].Feriados)).substring(1, TamJsonFeriados - 1);
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
 
         /*
