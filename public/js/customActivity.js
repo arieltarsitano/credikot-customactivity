@@ -139,7 +139,7 @@ define([
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
         payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
-
+        payload['arguments'].execute.inArguments[0].Feriados = document.getElementById('content2').value;
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
