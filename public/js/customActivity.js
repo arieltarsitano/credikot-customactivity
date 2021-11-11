@@ -114,13 +114,6 @@ define([
                 aux2--;
             }
 
-            /*
-            console.log('Acá se muestran las fechas:');
-            
-            console.log(partsArray[0]);
-            console.log(partsArray[1]);
-            console.log(partsArray[2]);
-            */
         }
 
 

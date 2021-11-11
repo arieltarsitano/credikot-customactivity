@@ -102,6 +102,8 @@ exports.execute = function (req, res) {
             console.log('acá decodedArgs');
             console.log(decodedArgs);
 
+            const feriadoVector = ["20/11/2021", "22/11/2021", "8/12/2021", "25/12/2021"];
+
             const numtel = decoded.keyValue;
             const texto = decoded.inArguments[0].Mensaje;
             const feriados = decoded.inArguments[0].Feriados;
@@ -109,28 +111,41 @@ exports.execute = function (req, res) {
             console.log(feriados);
             const textoEntero = texto;
 
-            const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
+            if (feriados != null && feriados.length > 0) {
 
-            var options = {
-                'method': 'POST',
-                'url': urlSmsMasivo,
-                'headers': {
-                    'Content-Type': 'application/json'
-                }
-            };
-            request(options, function (error, response) {
-                if (error) throw new Error(error);
-                console.log(response.body);
-            });
+                for (feriados = 0; feriados < 4; feriados++) {
 
-            /////
+                    if (feriadoVector[0] == feriados || feriadoVector[1] == feriados || feriadoVector[3] == feriados || feriadoVector[4] == feriados) {
+                        const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
 
-            logData(req);
-            res.status(200).send('Execute');
-        } else {
-            console.error('inArguments invalid.');
-            return res.status(400).end();
+                        var options = {
+                            'method': 'POST',
+                            'url': urlSmsMasivo,
+                            'headers': {
+                                'Content-Type': 'application/json'
+                            }
+                        };
+
+                        request(options, function (error, response) {
+                            if (error) throw new Error(error);
+                            console.log(response.body);
+                        });
+
+                        /////
+
+                        logData(req);
+                        res.status(200).send('Execute');
+                    }
+
+                    else {
+                        console.error('inArguments invalid.');
+                        return res.status(400).end();
+                    }
+
+                } //for
+            }
         }
+
     });
 };
 
