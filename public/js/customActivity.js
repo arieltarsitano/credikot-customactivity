@@ -100,7 +100,7 @@ define([
 
         document.getElementById('content').value = contenidoMensaje;
         document.getElementById('content2').value = JsonFeriados;
-        /*
+
         var identificador = ',';
 
         if (JsonFeriados != null && JsonFeriados.length > 0) {
@@ -114,14 +114,15 @@ define([
                 aux2--;
             }
 
+            /*
             console.log('Acá se muestran las fechas:');
             
             console.log(partsArray[0]);
             console.log(partsArray[1]);
             console.log(partsArray[2]);
-            
+            */
         }
-        */
+
 
 
         $.each(inArguments, function (index, inArgument) {
