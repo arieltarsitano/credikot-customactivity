@@ -234,28 +234,30 @@ define([
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
 
-        var feriadosFor = payload['arguments'].execute.inArguments[0].Feriados;
+        //var feriadosFor = payload['arguments'].execute.inArguments[0].Feriados;
+        /*
 
-        for (var i = 0; i < feriadosFor.length; i++) {
-            retornaValorFecha = isValidDate(element);
+
+        for (var i = 0; i < maxIter; i++) {
+            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[i].Feriados);
 
             if (retornaValorFecha == false) {
                 break;
             }
         }
-
-        /*
-        payload['arguments'].execute.inArguments[0].Feriados.forEach(element => {
-
-            retornaValorFecha = isValidDate(element);
-
-            if (retornaValorFecha == false) {
-                return;
-            }
-
-        });
-
         */
+
+        var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
+
+        retornaValorFecha = isValidDate(element);
+        var i = 0;
+
+        while (retornaValorFecha == true && maxIter > 0) {
+
+            maxIter--;
+            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            i++;
+        }
 
         if (retornaValorFecha == true) {
             connection.trigger('updateActivity', payload);
