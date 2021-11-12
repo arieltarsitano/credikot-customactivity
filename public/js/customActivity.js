@@ -1,4 +1,4 @@
-const { validate } = require("../../routes/activity");
+const { validate } = require("../../routes/activity.js");
 
 define([
     'postmonger'
