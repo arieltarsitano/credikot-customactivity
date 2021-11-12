@@ -72,8 +72,8 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
-        var TamJsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
-        var JsonFeriados = (JSON.stringify(inArguments[0].Feriados)).substring(1, TamJsonFeriados - 1);
+        //var TamJsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
+        var JsonFeriados = comillas(inArguments[0].Feriados);//   (JSON.stringify(inArguments[0].Feriados)).substring(1, TamJsonFeriados - 1);
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
 
         /*
@@ -142,6 +142,27 @@ define([
         }
 
         return partsArray;
+    }
+
+    function comillas(JsonFeriados) {
+
+        if (JsonFeriados != null && JsonFeriados.length > 0) {
+            var partsArray = [];
+            var cont = 0;
+            var tam = JsonFeriados.length;
+
+            while (tam > 0) {
+                partsArray[cont] = JsonFeriados[cont].substring(1, JsonFeriados[cont].length - 1);
+                cont++;
+                tam--;
+            }
+
+        }
+
+        return partsArray;
+
+
+
     }
 
     function save() {
