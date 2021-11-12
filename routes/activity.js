@@ -76,9 +76,6 @@ exports.save = function (req, res) {
  */
 exports.execute = function (req, res) {
 
-
-
-
     // example on how to decode JWT
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
@@ -111,43 +108,41 @@ exports.execute = function (req, res) {
             console.log(feriados);
             const textoEntero = texto;
 
+            var today = new Date();
+            var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
 
+            var encontrado = feriadoVector.find(a => a.includes(date));
 
-            if (feriados != null && feriados.length > 0) {
+            if (encontrado != undefined) {
 
-                for (feriados = 0; feriados < 4; feriados++) {
+                const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
 
-                    if (feriadoVector[0] == feriados || feriadoVector[1] == feriados || feriadoVector[3] == feriados || feriadoVector[4] == feriados) {
-                        const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
-
-                        var options = {
-                            'method': 'POST',
-                            'url': urlSmsMasivo,
-                            'headers': {
-                                'Content-Type': 'application/json'
-                            }
-                        };
-
-                        request(options, function (error, response) {
-                            if (error) throw new Error(error);
-                            console.log(response.body);
-                        });
-
-                        /////
-
-                        logData(req);
-                        res.status(200).send('Execute');
+                var options = {
+                    'method': 'POST',
+                    'url': urlSmsMasivo,
+                    'headers': {
+                        'Content-Type': 'application/json'
                     }
+                };
 
-                    else {
-                        console.error('inArguments invalid.');
-                        return res.status(400).end();
-                    }
+                request(options, function (error, response) {
+                    if (error) throw new Error(error);
+                    console.log(response.body);
+                });
 
-                } //for
+                ////////
+
+                logData(req);
+                console.log('Hoy no es feriado. SE PROCEDE!');
+                res.status(200).send('Execute');
+            }
+
+            else {
+                console.error('inArguments invalid.');
+                console.log('Hoy es feriado, no se va a mandar el mensaje');
+                return res.status(400).end();
             }
         }
-
     });
 };
 
