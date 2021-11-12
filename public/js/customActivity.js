@@ -234,7 +234,17 @@ define([
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
 
+        var feriadosFor = payload['arguments'].execute.inArguments[0].Feriados;
 
+        for (var i = 0; i < feriadosFor.length; i++) {
+            retornaValorFecha = isValidDate(element);
+
+            if (retornaValorFecha == false) {
+                break;
+            }
+        }
+
+        /*
         payload['arguments'].execute.inArguments[0].Feriados.forEach(element => {
 
             retornaValorFecha = isValidDate(element);
@@ -244,6 +254,8 @@ define([
             }
 
         });
+
+        */
 
         if (retornaValorFecha == true) {
             connection.trigger('updateActivity', payload);
