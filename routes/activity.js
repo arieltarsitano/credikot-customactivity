@@ -111,6 +111,8 @@ exports.execute = function (req, res) {
             console.log(feriados);
             const textoEntero = texto;
 
+
+
             if (feriados != null && feriados.length > 0) {
 
                 for (feriados = 0; feriados < 4; feriados++) {
