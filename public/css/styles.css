@@ -5,12 +5,14 @@ body {
 html {
   background: #ffffff;
 }
+
+/*
 .tituloMensaje {
   /*align-content: center;
   margin-bottom: 5%;
-  */
+  
 }
-
+*/
 .areaTexto {
   width: 100%;
   height: 300%;
