@@ -114,7 +114,7 @@ exports.execute = function (req, res) {
             console.log("acá encontrado");
             console.log(encontrado);
 
-            if (encontrado != undefined) {
+            if (encontrado == undefined) {
 
                 const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
 
