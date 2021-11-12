@@ -1,5 +1,4 @@
-//const { validate } = require();
-//var module = require("../../routes/activity.js")
+//const { validate } = require("../../routes/activity.js");
 define([
     'postmonger'
 ], function (
@@ -234,23 +233,16 @@ define([
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
 
-        //var feriadosFor = payload['arguments'].execute.inArguments[0].Feriados;
-        /*
-
-
-        for (var i = 0; i < maxIter; i++) {
-            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[i].Feriados);
-
-            if (retornaValorFecha == false) {
-                break;
-            }
-        }
-        */
-
         var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
 
         var i = 0;
         retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+
+        console.log('es valid:')
+        console.log(isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]));
+
+        console.log('es retornavalorfecha:')
+        console.log(retornaValorFecha);
 
         while (retornaValorFecha == true && maxIter > 0) {
 
