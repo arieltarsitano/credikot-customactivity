@@ -244,16 +244,19 @@ define([
         console.log('es retornavalorfecha:')
         console.log(retornaValorFecha);
 
-        while (retornaValorFecha == true && maxIter > 0) {
-
-            maxIter--;
-            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-            i++;
-        }
-
         if (retornaValorFecha == true) {
-            connection.trigger('updateActivity', payload);
+            while (maxIter > 0) {
+
+                maxIter--;
+                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                i++;
+            }
+
+            if (retornaValorFecha == true) {
+                connection.trigger('updateActivity', payload);
+            }
         }
     }
+
 
 });
