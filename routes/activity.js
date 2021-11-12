@@ -99,8 +99,6 @@ exports.execute = function (req, res) {
             console.log('acá decodedArgs');
             console.log(decodedArgs);
 
-            const feriadoVector = ["20/11/2021", "22/11/2021", "8/12/2021", "25/12/2021"];
-
             const numtel = decoded.keyValue;
             const texto = decoded.inArguments[0].Mensaje;
             const feriados = decoded.inArguments[0].Feriados;
@@ -111,7 +109,7 @@ exports.execute = function (req, res) {
             var today = new Date();
             var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
 
-            var encontrado = feriadoVector.find(a => a.includes(date));
+            var encontrado = feriados.find(a => a.includes(date));
 
             console.log("acá encontrado");
             console.log(encontrado);
@@ -139,7 +137,6 @@ exports.execute = function (req, res) {
                 console.log('Hoy no es feriado. SE PROCEDE!');
                 res.status(200).send('Execute');
             }
-
             else {
                 console.error('inArguments invalid.');
                 console.log('Hoy es feriado, no se va a mandar el mensaje');
