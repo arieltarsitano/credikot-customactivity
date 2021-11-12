@@ -35,6 +35,18 @@
                 <h1 class="tituloMensaje">Introduzca los feriados del año, en formato DD/MM/AAAA, SEPARADOS POR COMA
                     (','):</h1>
                 <textarea class="areaTexto" id="content2"></textarea>
+                <template if:false={retornaValorFecha}>
+                    <button id="myBtn">Open Modal</button>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>¡INGRESÓ MAL LA FECHA, CHEQUEE EL INGRESO!</p>
+                        </div>
+                    </div>
+                </template>
+
             </main>
         </div>
     </div>

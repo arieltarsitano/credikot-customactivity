@@ -1,3 +1,5 @@
+const { validate } = require("../../routes/activity");
+
 define([
     'postmonger'
 ], function (
@@ -8,7 +10,8 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
-    var payloadFechas = {};
+    var retornaValorFecha = false;
+
     $(window).ready(onRender);
 
     connection.on('initActivity', initialize);
@@ -127,6 +130,8 @@ define([
 
     function sinBlancos(JsonFeriados) {
         var identificador = ',';
+        var separador = '/'
+
 
         if (JsonFeriados != null && JsonFeriados.length > 0) {
             var partsArray = JsonFeriados.split(identificador);
@@ -135,6 +140,16 @@ define([
 
             while (aux2 > 0) {
                 partsArray[cont] = partsArray[cont].trim();
+                var fecha = partsArray[cont].split(separador);
+
+                if (fecha[0].length != 2) {
+                    fecha[0] = '0' + fecha[0];
+                }
+                if (fecha[1].length != 2) {
+                    fecha[1] = '0' + fecha[1];
+                }
+
+                partsArray[cont] = fecha[0] + '/' + fecha[1] + '/' + fecha[2];
                 cont++;
                 aux2--;
             }
@@ -144,6 +159,7 @@ define([
         return partsArray;
     }
 
+    /*
     function comillas(JsonFeriados) {
 
         if (JsonFeriados != null && JsonFeriados.length > 0) {
@@ -160,10 +176,34 @@ define([
         }
 
         return partsArray;
-
-
-
     }
+    */
+
+    function isValidDate(dateString) {
+        // First check for the pattern
+        if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+            return false;
+
+        // Parse the date parts to integers
+        var parts = dateString.split("/");
+        var day = parseInt(parts[0], 10);
+        var month = parseInt(parts[1], 10);
+        var year = parseInt(parts[2], 10);
+
+        // Check the ranges of month and year
+        if (year < 1000 || year > 3000 || month == 0 || month > 12)
+            return false;
+
+        var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        // Adjust for leap years
+        if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+            monthLength[1] = 29;
+
+        // Check the range of the day
+        return day > 0 && day <= monthLength[month - 1];
+    };
+
 
     function save() {
 
@@ -188,14 +228,26 @@ define([
 
 
 
-        //payload['arguments'].execute.inArguments[0].Feriados = document.getElementById('content2').value;
+
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
-        connection.trigger('updateActivity', payload);
 
+
+        payload['arguments'].execute.inArguments[0].Feriados.forEach(element => {
+
+            retornaValorFecha = isValidDate(element);
+
+            if (retornaValorFecha == false) {
+                break;
+            }
+
+        });
+
+        if (retornaValorFecha == true) {
+            connection.trigger('updateActivity', payload);
+        }
     }
-
 
 });
