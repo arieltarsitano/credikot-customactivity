@@ -240,7 +240,7 @@ define([
             retornaValorFecha = isValidDate(element);
 
             if (retornaValorFecha == false) {
-                break;
+                return;
             }
 
         });
