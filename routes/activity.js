@@ -113,6 +113,9 @@ exports.execute = function (req, res) {
 
             var encontrado = feriadoVector.find(a => a.includes(date));
 
+            console.log("acá encontrado");
+            console.log(encontrado);
+
             if (encontrado != undefined) {
 
                 const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
