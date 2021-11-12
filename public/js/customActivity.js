@@ -249,8 +249,8 @@ define([
 
         var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
 
-        retornaValorFecha = isValidDate(element);
         var i = 0;
+        retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
 
         while (retornaValorFecha == true && maxIter > 0) {
 
