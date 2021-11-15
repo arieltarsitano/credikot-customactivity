@@ -10,6 +10,8 @@ define([
     var authTokens = {};
     var payload = {};
     var retornaValorFecha = false;
+    node.textContent = "Revise el ingreso de las fechas, error"
+
 
     $(window).ready(onRender);
 
@@ -203,7 +205,6 @@ define([
         return day > 0 && day <= monthLength[month - 1];
     };
 
-
     function save() {
 
         var postcardURLValue = $('#postcard-url').val();
@@ -251,6 +252,8 @@ define([
         }
 
         else if (retornaValorFecha == false) {
+            console.error("Por favor, introduzca un valor válido para la fecha");
+            error.style.color = "red";
             console.error('inArguments invalid. Ingresó de forma incorrecta la fecha');
             return res.status(400).end();
         }
