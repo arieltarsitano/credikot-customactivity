@@ -226,31 +226,23 @@ define([
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
 
 
-
-
-        payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
-
-        console.log('JSON Despues de guardar las variables a enviar');
-        console.log(payload.arguments.execute.inArguments);
-
         var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
 
         var i = 0;
         retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
 
-        console.log('es valid:')
-        console.log(isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]));
-
         console.log('es retornavalorfecha:')
         console.log(retornaValorFecha);
 
         if (retornaValorFecha == true) {
+            payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
             while (maxIter > 0) {
 
                 maxIter--;
                 retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
                 i++;
             }
+
             connection.trigger('updateActivity', payload);
         }
 
@@ -258,6 +250,10 @@ define([
             console.error('inArguments invalid. Ingresó de forma incorrecta la fecha');
             return res.status(400).end();
         }
+
+        console.log('JSON Despues de guardar las variables a enviar');
+        console.log(payload.arguments.execute.inArguments);
+
     }
 
 
