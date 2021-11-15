@@ -10,7 +10,6 @@ define([
     var authTokens = {};
     var payload = {};
     var retornaValorFecha = false;
-    node.textContent = "Revise el ingreso de las fechas, error"
 
 
     $(window).ready(onRender);
