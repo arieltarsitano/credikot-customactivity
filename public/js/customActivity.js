@@ -224,7 +224,7 @@ define([
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
         payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
-
+        payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
 
         retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
 
@@ -233,7 +233,6 @@ define([
 
         if (retornaValorFecha == true) {
 
-            payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
             var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
             var i = 0;
             while (maxIter > 0) {
