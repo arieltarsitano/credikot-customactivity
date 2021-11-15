@@ -136,6 +136,9 @@ define([
         if (JsonFeriados != null && JsonFeriados.length > 0) {
             var partsArray = JsonFeriados.split(identificador);
             partsArray = partsArray.filter(x => x !== null);
+            console.log('partsarray acá todo lindo');
+
+            console.log(partsArray);
             var cont = 0;
             var aux2 = partsArray.length;
 
