@@ -135,10 +135,12 @@ define([
 
         if (JsonFeriados != null && JsonFeriados.length > 0) {
             var partsArray = JsonFeriados.split(identificador);
+            partsArray = partsArray.filter(x => x !== null);
             var cont = 0;
             var aux2 = partsArray.length;
 
             while (aux2 > 0) {
+
                 partsArray[cont] = partsArray[cont].trim();
                 var fecha = partsArray[cont].split(separador);
 
