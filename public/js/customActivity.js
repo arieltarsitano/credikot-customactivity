@@ -232,6 +232,7 @@ define([
         console.log(retornaValorFecha);
 
         if (retornaValorFecha == true) {
+
             payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
             var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
             var i = 0;
