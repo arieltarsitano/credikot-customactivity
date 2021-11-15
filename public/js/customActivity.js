@@ -143,6 +143,7 @@ define([
 
             while (aux2 > 0) {
 
+                partsArray[cont] = partsArray[cont].trim();
                 var fecha = partsArray[cont].split(separador);
 
                 if (fecha != null && fecha != '') {
@@ -156,6 +157,7 @@ define([
 
                     partsArray[cont] = fecha[0] + '/' + fecha[1] + '/' + fecha[2];
                 }
+
                 console.log('fecha acá');
                 console.log(fecha);
 
