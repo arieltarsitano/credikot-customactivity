@@ -135,29 +135,30 @@ define([
 
         if (JsonFeriados != null && JsonFeriados.length > 0) {
             var partsArray = JsonFeriados.split(identificador);
-            partsArray = partsArray.filter(x => x !== null);
+            partsArray = partsArray.filter(x => x != null && x != '');
             console.log('partsarray acá todo lindo');
-
             console.log(partsArray);
             var cont = 0;
             var aux2 = partsArray.length;
 
             while (aux2 > 0) {
 
-                partsArray[cont] = partsArray[cont].trim();
                 var fecha = partsArray[cont].split(separador);
 
+                if (fecha != null && fecha != '') {
+
+                    if (fecha[0].length != 2) {
+                        fecha[0] = '0' + fecha[0];
+                    }
+                    if (fecha[1].length != 2) {
+                        fecha[1] = '0' + fecha[1];
+                    }
+
+                    partsArray[cont] = fecha[0] + '/' + fecha[1] + '/' + fecha[2];
+                }
                 console.log('fecha acá');
                 console.log(fecha);
 
-                if (fecha[0].length != 2) {
-                    fecha[0] = '0' + fecha[0];
-                }
-                if (fecha[1].length != 2) {
-                    fecha[1] = '0' + fecha[1];
-                }
-
-                partsArray[cont] = fecha[0] + '/' + fecha[1] + '/' + fecha[2];
                 cont++;
                 aux2--;
             }
