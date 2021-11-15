@@ -231,6 +231,10 @@ define([
         console.log('es retornavalorfecha:')
         console.log(retornaValorFecha);
 
+        console.log('es valid respuesta:')
+        console.log(isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]));
+
+
         if (retornaValorFecha == true) {
 
             var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
