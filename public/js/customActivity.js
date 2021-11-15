@@ -251,10 +251,12 @@ define([
                 retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
                 i++;
             }
+            connection.trigger('updateActivity', payload);
+        }
 
-            if (retornaValorFecha == true) {
-                connection.trigger('updateActivity', payload);
-            }
+        else if (retornaValorFecha == false) {
+            console.error('inArguments invalid. Ingresó de forma incorrecta la fecha');
+            return res.status(400).end();
         }
     }
 
