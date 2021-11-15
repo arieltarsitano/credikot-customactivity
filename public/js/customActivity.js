@@ -226,9 +226,6 @@ define([
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
 
 
-        var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
-
-        var i = 0;
         retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
 
         console.log('es retornavalorfecha:')
@@ -236,6 +233,8 @@ define([
 
         if (retornaValorFecha == true) {
             payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+            var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
+            var i = 0;
             while (maxIter > 0) {
 
                 maxIter--;
