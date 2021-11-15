@@ -241,11 +241,12 @@ define([
 
             maxIter--;
             retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-            i++;
+
 
             if (retornaValorFecha == true) {
                 vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
             }
+            i++;
         }
 
         payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
