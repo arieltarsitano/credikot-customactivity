@@ -204,6 +204,7 @@ define([
         return day > 0 && day <= monthLength[month - 1];
     };
 
+
     function save() {
 
         var postcardURLValue = $('#postcard-url').val();
@@ -229,33 +230,26 @@ define([
         var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
         var i = 0;
 
-        retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+        //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
 
         console.log('es retornavalorfecha:')
         console.log(retornaValorFecha);
 
-        console.log('es valid respuesta:')
-        console.log(isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]));
+        var vectorAux = [];
 
+        while (maxIter > 0) {
 
-        if (retornaValorFecha == true) {
+            maxIter--;
+            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            i++;
 
-            while (maxIter > 0) {
-
-                maxIter--;
-                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-                i++;
+            if (retornaValorFecha == true) {
+                vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
             }
-
-            connection.trigger('updateActivity', payload);
         }
 
-        else if (retornaValorFecha == false) {
-            console.error("Por favor, introduzca un valor válido para la fecha");
-            error.style.color = "red";
-            console.error('inArguments invalid. Ingresó de forma incorrecta la fecha');
-            return res.status(400).end();
-        }
+        payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
+        connection.trigger('updateActivity', payload);
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
