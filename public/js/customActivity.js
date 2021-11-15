@@ -144,6 +144,9 @@ define([
                 partsArray[cont] = partsArray[cont].trim();
                 var fecha = partsArray[cont].split(separador);
 
+                console.log('fecha acá');
+                console.log(fecha);
+
                 if (fecha[0].length != 2) {
                     fecha[0] = '0' + fecha[0];
                 }
