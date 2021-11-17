@@ -258,18 +258,15 @@ define([
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
 
+        //var maxIter = 0;
+        var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
 
-        var maxIter = 0;
-
-        if (payload['arguments'].execute.inArguments[0].Feriados == null || payload['arguments'].execute.inArguments[0].Feriados == undefined) {
+        if (maxIter == 0) {
             payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
 
         }
         else {
-
-            maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
             var i = 0;
-
             //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
             console.log('es retornavalorfecha:')
             console.log(retornaValorFecha);
