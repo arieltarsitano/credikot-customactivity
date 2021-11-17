@@ -131,10 +131,10 @@ define([
     function sinBlancos(JsonFeriados) {
         var identificador = ',';
         var separador = '/'
-
+        var partsArray = [];
 
         if (JsonFeriados != null && JsonFeriados.length > 0) {
-            var partsArray = JsonFeriados.split(identificador);
+            partsArray = JsonFeriados.split(identificador);
             partsArray = partsArray.filter(x => x != null && x != '');
             //console.log('partsarray acá todo lindo');
             console.log(partsArray);
@@ -257,6 +257,7 @@ define([
         payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+
 
         var maxIter = 0;
 
