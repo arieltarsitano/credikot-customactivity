@@ -224,6 +224,20 @@ define([
 
     function save() {
 
+        const d = new Date();
+        d.setDate(24);
+        d.setMonth(11);
+
+
+        var year = d.getFullYear(),
+            month = (d.getMonth() + 1).toString(),
+            formatedMonth = (month.length === 1) ? ("0" + month) : month,
+            day = d.getDate().toString(),
+            formatedDay = (day.length === 1) ? ("0" + day) : day
+
+        var fechaDefecto = formatedDay + "/" + formatedMonth + "/" + year;
+
+
         var postcardURLValue = $('#postcard-url').val();
         var postcardTextValue = $('#postcard-text').val();
 
@@ -254,22 +268,24 @@ define([
 
         var vectorAux = [];
 
-        if (payload['arguments'].execute.inArguments[0].Feriados != null || payload['arguments'].execute.inArguments[0].Feriados != undefined) {
-            while (maxIter > 0) {
-
-                maxIter--;
-                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-
-
-                if (retornaValorFecha == true) {
-                    vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
-                }
-                i++;
-            }
-
-            payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
-            connection.trigger('updateActivity', payload);
+        if (maxIter == 0) {
+            payload['arguments'].execute.inArguments[0].Feriados = fechaDefecto;
         }
+
+        while (maxIter > 0) {
+
+            maxIter--;
+            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+
+
+            if (retornaValorFecha == true) {
+                vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            }
+            i++;
+        }
+
+        payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
+        connection.trigger('updateActivity', payload);
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
