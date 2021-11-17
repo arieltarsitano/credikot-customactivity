@@ -269,7 +269,7 @@ define([
         var vectorAux = [];
 
         if (maxIter == 0) {
-            payload['arguments'].execute.inArguments[0].Feriados = fechaDefecto;
+            payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
         }
 
         while (maxIter > 0) {
