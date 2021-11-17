@@ -254,7 +254,7 @@ define([
 
         var vectorAux = [];
 
-        if (maxIter != null || maxIter != undefined) {
+        if (payload['arguments'].execute.inArguments[0].Feriados != null || payload['arguments'].execute.inArguments[0].Feriados != undefined) {
             while (maxIter > 0) {
 
                 maxIter--;
