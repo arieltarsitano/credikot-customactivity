@@ -258,33 +258,37 @@ define([
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
 
-        var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
-        var i = 0;
+        var maxIter = 0;
 
-        //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-
-        console.log('es retornavalorfecha:')
-        console.log(retornaValorFecha);
-
-        var vectorAux = [];
-
-        if (maxIter == 0) {
+        if (payload['arguments'].execute.inArguments[0].Feriados == null || payload['arguments'].execute.inArguments[0].Feriados == undefined) {
             payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
+
         }
+        else {
 
-        while (maxIter > 0) {
+            maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
+            var i = 0;
 
-            maxIter--;
-            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            console.log('es retornavalorfecha:')
+            console.log(retornaValorFecha);
 
+            var vectorAux = [];
 
-            if (retornaValorFecha == true) {
-                vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            while (maxIter > 0) {
+
+                maxIter--;
+                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+
+                if (retornaValorFecha == true) {
+                    vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                }
+                i++;
             }
-            i++;
+
+            payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
         }
 
-        payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
         connection.trigger('updateActivity', payload);
 
         console.log('JSON Despues de guardar las variables a enviar');
