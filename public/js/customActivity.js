@@ -136,7 +136,7 @@ define([
         if (JsonFeriados != null && JsonFeriados.length > 0) {
             var partsArray = JsonFeriados.split(identificador);
             partsArray = partsArray.filter(x => x != null && x != '');
-            console.log('partsarray acá todo lindo');
+            //console.log('partsarray acá todo lindo');
             console.log(partsArray);
             var cont = 0;
             var aux2 = partsArray.length;
@@ -195,7 +195,8 @@ define([
         if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
             return false;
 
-        // Parse the date parts to integers
+
+        // Parse the date parts to integers<
         var parts = dateString.split("/");
         var day = parseInt(parts[0], 10);
         var month = parseInt(parts[1], 10);
@@ -211,8 +212,13 @@ define([
         if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
             monthLength[1] = 29;
 
+        const datoFecha = dateString;
+        var today = new Date();
+        var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+
+
         // Check the range of the day
-        return day > 0 && day <= monthLength[month - 1];
+        return day > 0 && day <= monthLength[month - 1] && datoFecha >= date.toString(); // && dat >= .today(); hacer lo de la fecha pasada!
     };
 
 
@@ -248,20 +254,22 @@ define([
 
         var vectorAux = [];
 
-        while (maxIter > 0) {
+        if (maxIter != null || maxIter != undefined) {
+            while (maxIter > 0) {
 
-            maxIter--;
-            retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                maxIter--;
+                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
 
 
-            if (retornaValorFecha == true) {
-                vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                if (retornaValorFecha == true) {
+                    vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                }
+                i++;
             }
-            i++;
-        }
 
-        payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
-        connection.trigger('updateActivity', payload);
+            payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
+            connection.trigger('updateActivity', payload);
+        }
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
