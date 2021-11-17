@@ -212,13 +212,13 @@ define([
         if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
             monthLength[1] = 29;
 
-        const datoFecha = dateString;
+        const datoFecha = new Date(year, month, day);
         var today = new Date();
-        var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+        //var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
 
 
         // Check the range of the day
-        return day > 0 && day <= monthLength[month - 1] && datoFecha >= date.toString(); // && dat >= .today(); hacer lo de la fecha pasada!
+        return day > 0 && day <= monthLength[month - 1] && datoFecha >= today;
     };
 
 
