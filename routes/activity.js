@@ -101,7 +101,10 @@ exports.execute = function (req, res) {
 
             //const numtel = decoded.keyValue;
             const numtel = decoded.inArguments[0].Telefono;
-            // const numtel = decoded.inArguments[0].telefono2; 
+
+            console.log('acá telefono');
+            console.log(numtel);
+
             const texto = decoded.inArguments[0].Mensaje;
             const feriados = decoded.inArguments[0].Feriados;
             console.log('acá feriados');
