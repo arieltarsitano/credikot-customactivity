@@ -256,8 +256,11 @@ define([
         payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
         payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
-        payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
         payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
+        payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+
+        console.log('acá telefono custom:');
+        console.log(payload['arguments'].execute.inArguments[0].Telefono);
 
         //var maxIter = 0;
         var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;

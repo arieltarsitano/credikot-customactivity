@@ -102,7 +102,7 @@ exports.execute = function (req, res) {
             //const numtel = decoded.keyValue;
             const numtel = decoded.inArguments[0].Telefono;
 
-            console.log('acá telefono');
+            console.log('acá telefono activity');
             console.log(numtel);
 
             const texto = decoded.inArguments[0].Mensaje;

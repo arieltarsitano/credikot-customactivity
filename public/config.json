@@ -22,8 +22,8 @@
                "Monto":"{{Contact.Attribute.30092021_Journey_Mora.Monto}}",
                "nroWPP":"{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}",
                "linkWPP":"{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}",
-               "Feriados":"Introduzca los días aquí",
-               "Telefono":"{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
+               "Telefono":"{{Contact.Attribute.30092021_Journey_Mora.Telefono}}",
+               "Feriados":"Introduzca los días aquí"
               }
             ],
             "outArguments": [
