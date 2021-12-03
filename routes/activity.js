@@ -99,7 +99,9 @@ exports.execute = function (req, res) {
             console.log('acá decodedArgs');
             console.log(decodedArgs);
 
-            const numtel = decoded.keyValue;
+            //const numtel = decoded.keyValue;
+            const numtel = decoded.inArguments[0].Telefono;
+            // const numtel = decoded.inArguments[0].telefono2; 
             const texto = decoded.inArguments[0].Mensaje;
             const feriados = decoded.inArguments[0].Feriados;
             console.log('acá feriados');
