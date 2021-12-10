@@ -86,7 +86,7 @@ define([
         }
         else {
 
-            if (JSON.stringify(inArguments[0].Journey) == '1') {
+            if (j1) {
                 bandId = 0;
                 console.log('ES BANDERA 0');
             }
@@ -96,10 +96,14 @@ define([
 
             }
         }
-        console.log('AHORA MUESTRO EL MENSAJE:');
+        //console.log('AHORA MUESTRO EL MENSAJE:');
+        if (JSON.stringify(inArguments[bandId].Mensaje) == undefined || JSON.stringify(inArguments[bandId].Mensaje) == null) {
+            console.log('entro para poner pepito:');
+            inArguments[bandId].Mensaje = 'pepito';
+            console.log('aber');
+            console.log(inArguments[bandId].Mensaje);
 
-
-        console.log(JSON.stringify(inArguments[bandId].Mensaje));
+        }
 
         var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
         var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
