@@ -52,7 +52,7 @@ define([
 
     function initialize(data) {
 
-        var bandId = 0;
+        var bandId;
         console.log('qué ondis');
         console.log(data.arguments.execute);
 
