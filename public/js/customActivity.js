@@ -83,12 +83,6 @@ define([
         contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
 
-        document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content2').value = JsonFeriados;
-
-        //save 
-
-
         //Journey 2
         var tamJson2 = (JSON.stringify(inArguments[1].Mensaje)).length;
         var JsonFeriados2 = inArguments[1].Feriados; // Journey 2
@@ -97,8 +91,9 @@ define([
         contenidoMensaje2 = contenidoMensaje2.replaceAll('\n', '\n');
         contenidoMensaje2 = contenidoMensaje2.replaceAll('\\', '');
 
-        document.getElementById('content').value = contenidoMensaje2;
-        document.getElementById('content2').value = JsonFeriados2;
+        document.getElementById('content').value = contenidoMensaje;
+        document.getElementById('content2').value = JsonFeriados;
+
 
         /*
         var Datos = DataExtension.Init("Datos");
@@ -263,41 +258,49 @@ define([
             "tokens": authTokens
         }];
 
+        var Journey1 = document.getElementById('Journey1').value;
+        //var Journey2 = document.getElementById('Journey2').value;
 
-        //Journey 1
-        payload['metaData'].isConfigured = true;
-        payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
-        payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
-        payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
-        payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
-        payload['arguments'].execute.inArguments[0].Journey = "{{Contact.Attribute.30092021_Journey_Mora.Journey}}"
-        payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+        if (Journey1 != null && Journey1 != undefined) {
+            payload['metaData'].isConfigured = true;
+            payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
+            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
+            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
+            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
+            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
+            payload['arguments'].execute.inArguments[0].Journey = "{{Contact.Attribute.30092021_Journey_Mora.Journey}}"
+            payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
 
-        console.log('acá telefono custom1:');
-        console.log(payload['arguments'].execute.inArguments[0].Telefono);
+            console.log('acá telefono custom1:');
+            console.log(payload['arguments'].execute.inArguments[0].Telefono);
 
-        //Journey 1
+            var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
+            var bandJourney = 0;
+        }
 
-        //var maxIter = 0;
-        var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
-        //var maxIter2 = payload['arguments'].execute.inArguments[1].Feriados.length;
+        else {
 
-        //primera entrada para el journey 1
+            payload['arguments'].execute.inArguments[1].Mensaje = document.getElementById('content').value;
+            payload['arguments'].execute.inArguments[1].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
+            payload['arguments'].execute.inArguments[1].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
+            payload['arguments'].execute.inArguments[1].nroWPP = "{{Contact.Attribute.CredikotJourney2.nroWPP}}"
+            payload['arguments'].execute.inArguments[1].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
+            payload['arguments'].execute.inArguments[1].Journey = "{{Contact.Attribute.CredikotJourney2.Journey}}"
+            payload['arguments'].execute.inArguments[1].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
+            payload['arguments'].execute.inArguments[1].Feriados = sinBlancos(document.getElementById('content2').value);
+
+            console.log('acá telefono custom2:');
+            console.log(payload['arguments'].execute.inArguments[1].Telefono);
+
+            var maxIter = payload['arguments'].execute.inArguments[1].Feriados.length;
+            var bandJourney = 1;
+
+        }
+
         if (maxIter == 0) {
 
-            // payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
-            maxIter = payload['arguments'].execute.inArguments[1].Feriados.length;
-
-            if (maxIter == 0) {
-                payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
-
-            }
-            else {
-                payload['arguments'].execute.inArguments[0].Feriados[0] = payload['arguments'].execute.inArguments[1].Feriados[0]; //journey 2
-
-            }
+            payload['arguments'].execute.inArguments[bandJourney].Feriados[0] = fechaDefecto;
 
         }
         else {
@@ -311,74 +314,20 @@ define([
             while (maxIter > 0) {
 
                 maxIter--;
-                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[bandJourney].Feriados[i]);
 
                 if (retornaValorFecha == true) {
-                    vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                    vectorAux.push(payload['arguments'].execute.inArguments[bandJourney].Feriados[i]);
                 }
                 i++;
             }
 
-            payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
-            payload['arguments'].execute.inArguments[1].Feriados = vectorAux;
+            payload['arguments'].execute.inArguments[bandJourney].Feriados = vectorAux;
         }
-
-        //connection.trigger('updateActivity', payload); ///cualquier cosa se baja una sola
 
         console.log('JSON Despues de guardar las variables a enviar para el journey2');
         console.log(payload.arguments.execute.inArguments);
-
-        //Journey 2
-        payload['arguments'].execute.inArguments[1].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[1].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
-        payload['arguments'].execute.inArguments[1].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
-        payload['arguments'].execute.inArguments[1].nroWPP = "{{Contact.Attribute.CredikotJourney2.nroWPP}}"
-        payload['arguments'].execute.inArguments[1].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
-        payload['arguments'].execute.inArguments[1].Journey = "{{Contact.Attribute.CredikotJourney2.Journey}}"
-        payload['arguments'].execute.inArguments[1].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
-        //payload['arguments'].execute.inArguments[1].Feriados = sinBlancos(document.getElementById('content2').value);
-
-        console.log('acá telefono custom2:');
-        console.log(payload['arguments'].execute.inArguments[1].Telefono);
         connection.trigger('updateActivity', payload);
-
-        /*
-        //var maxIter = 0;
-        var maxIter2 = payload['arguments'].execute.inArguments[1].Feriados.length;
-
-        if (maxIter2 == 0) {
-            payload['arguments'].execute.inArguments[1].Feriados[1] = fechaDefecto;
-        }
-        else {
-            var i = 0;
-            //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-            //console.log('es retornavalorfecha2:')
-            //console.log(retornaValorFecha);
-
-            var vectorAux = [];
-
-            while (maxIter2 > 0) {
-
-                maxIter2--;
-                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[1].Feriados[i]);
-
-                if (retornaValorFecha == true) {
-                    vectorAux.push(payload['arguments'].execute.inArguments[1].Feriados[i]);
-                }
-                i++;
-            }
-
-            payload['arguments'].execute.inArguments[1].Feriados = vectorAux;
-        }
-
-        
-
-        console.log('JSON Despues de guardar las variables a enviar para json2');
-        console.log(payload.arguments.execute.inArguments);
-        */
-
-
     }
-
 
 });

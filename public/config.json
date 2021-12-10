@@ -71,9 +71,7 @@
       }
     },
     "wizardSteps": [
-        { "label": "Configure Journey", "key": "step1" },
-        { "label": "Configure Activity", "key": "step2" },
-        { "label": "Configure Feriados", "key": "step3" }
+        { "label": "Configure Journey", "key": "step1" }
     ],
     "userInterfaces": {
         "configModal": {

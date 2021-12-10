@@ -89,7 +89,7 @@ exports.execute = function (req, res) {
 
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
-            var decodedArgs2 = decoded.inArguments[1]; //journey 2 - no se utiliza
+            //var decodedArgs2 = decoded.inArguments[1]; //journey 2 - no se utiliza
 
 
             // Acá llamamos al web service
@@ -104,7 +104,17 @@ exports.execute = function (req, res) {
             console.log(decodedArgs2);
 
             //const numtel = decoded.keyValue;
-            const feriados = decoded.inArguments[0].Feriados;
+            var bandJourney;
+
+            if (decoded.inArguments[0].Journey == 1) {
+
+                bandJourney = 0;
+            }
+            else if (decoded.inArguments[0].Journey == 2) {
+                bandJourney = 1;
+            }
+            const feriados = decoded.inArguments[bandJourney].Feriados;
+
             console.log('acá feriados');
             console.log(feriados);
 
