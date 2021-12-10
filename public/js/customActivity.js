@@ -78,6 +78,11 @@ define([
         var j1 = document.getElementById('Journey1');
         var j2 = document.getElementById('Journey2');
 
+        console.log('Inicios de j1:');
+        console.log(j1);
+        console.log('Inicios de j2:');
+        console.log(j2);
+
 
         if ((j1 == null || j1 == undefined) && (j2 == null || j2 == undefined)) {
 
@@ -86,14 +91,15 @@ define([
         }
         else {
 
-            if (j1 == true && j2 == false) {
+
+            if (j1) {
                 bandId = 0;
                 console.log('ES BANDERA 0');
                 document.getElementById('Journey2').value = false;
                 document.getElementById('Journey1').value = true;
 
             }
-            else if (j2 == true && j1 == false) {
+            else if (j2) {
                 bandId = 1;
                 console.log('ES BANDERA 1');
                 document.getElementById('Journey1').value = false;
