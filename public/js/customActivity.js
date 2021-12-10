@@ -111,6 +111,10 @@ define([
         document.getElementById('content').value = contenidoMensaje;
         document.getElementById('content2').value = JsonFeriados;
 
+        document.getElementById('content').value = contenidoMensaje;
+        document.getElementById('content2').value = JsonFeriados;
+        document.getElementById('Journey1').value = true;
+
 
         /*
         var Datos = DataExtension.Init("Datos");
