@@ -88,7 +88,11 @@ define([
 
 
         var j1 = document.getElementById('Journey1').checked;
+        console.log('j1');
+        console.log(j1);
         var j2 = document.getElementById('Journey2').checked;
+        console.log('j2');
+        console.log(j2);
 
         console.log('Mensaje:');
         console.log(JSON.stringify(inArguments[0].Mensaje));
@@ -286,11 +290,11 @@ define([
             "tokens": authTokens
         }];
 
-        var Journey1 = document.getElementById('Journey1').value;
-        var Journey2 = document.getElementById('Journey2').value;
-        console.log('botón 1:')
+        var Journey1 = document.getElementById('Journey1').checked;
+        var Journey2 = document.getElementById('Journey2').checked;
+        console.log('botón 1 checked:');
         console.log(Journey1);
-        console.log('botón 2:')
+        console.log('botón 2 checked:');
         console.log(Journey2);
 
 
