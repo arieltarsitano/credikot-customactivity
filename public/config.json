@@ -24,7 +24,7 @@
                "linkWPP":"{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}",
                "Telefono":"{{Contact.Attribute.30092021_Journey_Mora.Telefono}}",
                "Feriados":"Introduzca los días aquí",
-               "Boton1":""    
+               "Boton1":"true"    
               },
               {
                 "Mensaje":"Bienvenidos a Credikot",
@@ -34,7 +34,7 @@
                 "linkWPP":"{{Contact.Attribute.CredikotJourney2.linkWPP}}",
                 "Telefono":"{{Contact.Attribute.CredikotJourney2.Telefono}}",
                 "Feriados":"Introduzca los días aquí",
-                "Boton2":""
+                "Boton2":"false"
                }
             ],
             "outArguments": [

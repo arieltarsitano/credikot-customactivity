@@ -87,21 +87,21 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
 
-        var j1 = payload['arguments'].execute.inArguments[0].Boton1;
+        var j1 = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton1);
         console.log('j1');
         console.log(j1);
-        var j2 = payload['arguments'].execute.inArguments[1].Boton2;
+        var j2 = JSON.stringify(payload['arguments'].execute.inArguments[1].Boton2);
         console.log('j2');
         console.log(j2);
 
-        if (j1) {
+        if (j1 == 'true') {
             bandId = 0;
             console.log('ES BANDERA 0');
             document.getElementById('Journey1').value = true;
             document.getElementById('Journey2').value = false;
 
         }
-        else if (j2 == true) {
+        else if (j2 == 'true') {
             bandId = 1;
             console.log('ES BANDERA 1');
             document.getElementById('Journey2').value = true;
