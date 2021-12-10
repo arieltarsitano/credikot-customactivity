@@ -86,14 +86,14 @@ define([
         }
         else {
 
-            if (j1 == true) {
+            if (j1 == true && j2 == false) {
                 bandId = 0;
                 console.log('ES BANDERA 0');
                 document.getElementById('Journey2').value = false;
                 document.getElementById('Journey1').value = true;
 
             }
-            else if (j2 == true) {
+            else if (j2 == true && j1 == false) {
                 bandId = 1;
                 console.log('ES BANDERA 1');
                 document.getElementById('Journey1').value = false;
