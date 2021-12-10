@@ -89,64 +89,115 @@ exports.execute = function (req, res) {
 
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
+            var decodedArgs2 = decoded.inArguments[1]; //journey 2 - no se utiliza
+
 
             // Acá llamamos al web service
             var request = require('request');
             const util = require("util");
 
-            console.log('acá decoded');
+            console.log('acá decoded1');
             console.log(decoded);
-            console.log('acá decodedArgs');
+            console.log('acá decodedArgs1');
             console.log(decodedArgs);
+            console.log('acá decodedArgs2');
+            console.log(decodedArgs2);
 
             //const numtel = decoded.keyValue;
-            const numtel = decoded.inArguments[0].Telefono;
-
-            console.log('acá telefono activity');
-            console.log(numtel);
-
-            const texto = decoded.inArguments[0].Mensaje;
             const feriados = decoded.inArguments[0].Feriados;
             console.log('acá feriados');
             console.log(feriados);
-            const textoEntero = texto;
+
+            //para fechas
 
             var today = new Date();
             var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-
             var encontrado = feriados.find(a => a.includes(date));
 
             console.log("acá encontrado");
             console.log(encontrado);
 
-            if (encontrado == undefined) {
+            if (decoded.inArguments[0].Journey != 1 && decoded.inArguments[1].Journey != 2) {
 
-                const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
+                if (decoded.inArguments[0].Journey == 1) {
+                    const numtel = decoded.inArguments[0].Telefono; //Journey 1
+                    const texto = decoded.inArguments[0].Mensaje;
+                    const textoEntero = texto;
 
-                var options = {
-                    'method': 'POST',
-                    'url': urlSmsMasivo,
-                    'headers': {
-                        'Content-Type': 'application/json'
+                    if (encontrado == undefined) {
+
+                        const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel}&texto=${textoEntero}`
+
+                        var options = {
+                            'method': 'POST',
+                            'url': urlSmsMasivo,
+                            'headers': {
+                                'Content-Type': 'application/json'
+                            }
+                        };
+
+                        request(options, function (error, response) {
+                            if (error) throw new Error(error);
+                            console.log(response.body);
+                        });
+
+                        ////////
+
+                        logData(req);
+                        console.log('Hoy no es feriado. SE PROCEDE!');
+                        res.status(200).send('Execute');
                     }
-                };
+                    else {
+                        console.error('inArguments invalid.');
+                        console.log('Hoy es feriado, no se va a mandar el mensaje');
+                        return res.status(400).end();
+                    }
 
-                request(options, function (error, response) {
-                    if (error) throw new Error(error);
-                    console.log(response.body);
-                });
+                }
+                if (decoded.inArguments[1].Journey == 2) {
+                    const numtel2 = decoded.inArguments[1].Telefono; //Journey 2
+                    const texto2 = decoded.inArguments[1].Mensaje;
+                    const textoEntero2 = texto2;
 
-                ////////
+                    if (encontrado == undefined) {
 
-                logData(req);
-                console.log('Hoy no es feriado. SE PROCEDE!');
-                res.status(200).send('Execute');
+                        const urlSmsMasivo = `http://servicio.smsmasivos.com.ar/enviar_sms.asp?api=1&usuario=CREDIKOT&clave=CREDIKOT443&tos=${numtel2}&texto=${textoEntero2}`
+
+                        var options = {
+                            'method': 'POST',
+                            'url': urlSmsMasivo,
+                            'headers': {
+                                'Content-Type': 'application/json'
+                            }
+                        };
+
+                        request(options, function (error, response) {
+                            if (error) throw new Error(error);
+                            console.log(response.body);
+                        });
+
+                        ////////
+
+                        logData(req);
+                        console.log('Hoy no es feriado. SE PROCEDE!');
+                        res.status(200).send('Execute');
+                    }
+                    else {
+                        console.error('inArguments invalid.');
+                        console.log('Hoy es feriado, no se va a mandar el mensaje');
+                        return res.status(400).end();
+                    }
+
+                }
+
             }
             else {
-                console.error('inArguments invalid.');
-                console.log('Hoy es feriado, no se va a mandar el mensaje');
+                console.error('invalid Journey. NO SE VA A ENVIAR NINGÚN MENSAJE');
                 return res.status(400).end();
             }
+
+            //console.log('acá telefono activity');
+            //console.log(numtel);
         }
     });
 };

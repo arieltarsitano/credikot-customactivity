@@ -23,13 +23,17 @@
                "nroWPP":"{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}",
                "linkWPP":"{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}",
                "Telefono":"{{Contact.Attribute.30092021_Journey_Mora.Telefono}}",
+               "Journey":"{{Contact.Attribute.30092021_Journey_Mora.Telefono}}",
                "Feriados":"Introduzca los días aquí"
               },
               {
                 "Mensaje":"Bienvenidos a Credikot",
                 "Nombre":"{{Contact.Attribute.CredikotJourney2.Nombre}}",
+                "Monto":"{{Contact.Attribute.CredikotJourney2.Monto}}",
+                "nroWPP":"{{Contact.Attribute.CredikotJourney2.nroWPP}}",
                 "linkWPP":"{{Contact.Attribute.CredikotJourney2.linkWPP}}",
                 "Telefono":"{{Contact.Attribute.CredikotJourney2.Telefono}}",
+                "Journey":"{{Contact.Attribute.CredikotJourney2.Telefono}}",
                 "Feriados":"Introduzca los días aquí"
                }
             ],
@@ -67,7 +71,9 @@
       }
     },
     "wizardSteps": [
-        { "label": "Configure Activity", "key": "step1" }
+        { "label": "Configure Journey", "key": "step1" },
+        { "label": "Configure Activity", "key": "step2" },
+        { "label": "Configure Feriados", "key": "step3" }
     ],
     "userInterfaces": {
         "configModal": {

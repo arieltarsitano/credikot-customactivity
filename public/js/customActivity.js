@@ -9,6 +9,7 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
+    //var payload2 = {};
     var retornaValorFecha = false;
 
 
@@ -74,10 +75,30 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
+        //Journey 1
         var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
-        //var TamJsonFeriados = (JSON.stringify(inArguments[0].Feriados)).length;
-        var JsonFeriados = inArguments[0].Feriados;//   (JSON.stringify(inArguments[0].Feriados)).substring(1, TamJsonFeriados - 1);
+        var JsonFeriados = inArguments[0].Feriados;// Journey 1
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
+
+        contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
+        contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
+
+        document.getElementById('content').value = contenidoMensaje;
+        document.getElementById('content2').value = JsonFeriados;
+
+        //save 
+
+
+        //Journey 2
+        var tamJson2 = (JSON.stringify(inArguments[1].Mensaje)).length;
+        var JsonFeriados2 = inArguments[1].Feriados; // Journey 2
+        var contenidoMensaje2 = (JSON.stringify(inArguments[1].Mensaje)).substring(1, tamJson2 - 1);
+
+        contenidoMensaje2 = contenidoMensaje2.replaceAll('\n', '\n');
+        contenidoMensaje2 = contenidoMensaje2.replaceAll('\\', '');
+
+        document.getElementById('content').value = contenidoMensaje2;
+        document.getElementById('content2').value = JsonFeriados2;
 
         /*
         var Datos = DataExtension.Init("Datos");
@@ -97,12 +118,6 @@ define([
 
         var moredata = Datos.Rows.Retrieve(complexfilter);
         */
-
-        contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
-        contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
-
-        document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content2').value = JsonFeriados;
 
 
         $.each(inArguments, function (index, inArgument) {
@@ -237,7 +252,6 @@ define([
 
         var fechaDefecto = formatedDay + "/" + formatedMonth + "/" + year;
 
-
         var postcardURLValue = $('#postcard-url').val();
         var postcardTextValue = $('#postcard-text').val();
 
@@ -250,6 +264,7 @@ define([
         }];
 
 
+        //Journey 1
         payload['metaData'].isConfigured = true;
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
         payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
@@ -257,23 +272,39 @@ define([
         payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
         payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
         payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
+        payload['arguments'].execute.inArguments[0].Journey = "{{Contact.Attribute.30092021_Journey_Mora.Journey}}"
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
 
-        console.log('acá telefono custom:');
+        console.log('acá telefono custom1:');
         console.log(payload['arguments'].execute.inArguments[0].Telefono);
+
+        //Journey 1
 
         //var maxIter = 0;
         var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
+        //var maxIter2 = payload['arguments'].execute.inArguments[1].Feriados.length;
 
+        //primera entrada para el journey 1
         if (maxIter == 0) {
-            payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
+
+            // payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
+            maxIter = payload['arguments'].execute.inArguments[1].Feriados.length;
+
+            if (maxIter == 0) {
+                payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
+
+            }
+            else {
+                payload['arguments'].execute.inArguments[0].Feriados[0] = payload['arguments'].execute.inArguments[1].Feriados[0]; //journey 2
+
+            }
 
         }
         else {
             var i = 0;
             //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-            console.log('es retornavalorfecha:')
-            console.log(retornaValorFecha);
+            //console.log('es retornavalorfecha:');
+            // console.log(retornaValorFecha);
 
             var vectorAux = [];
 
@@ -289,12 +320,63 @@ define([
             }
 
             payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
+            payload['arguments'].execute.inArguments[1].Feriados = vectorAux;
         }
 
+        //connection.trigger('updateActivity', payload); ///cualquier cosa se baja una sola
+
+        console.log('JSON Despues de guardar las variables a enviar para el journey2');
+        console.log(payload.arguments.execute.inArguments);
+
+        //Journey 2
+        payload['arguments'].execute.inArguments[1].Mensaje = document.getElementById('content').value;
+        payload['arguments'].execute.inArguments[1].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
+        payload['arguments'].execute.inArguments[1].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
+        payload['arguments'].execute.inArguments[1].nroWPP = "{{Contact.Attribute.CredikotJourney2.nroWPP}}"
+        payload['arguments'].execute.inArguments[1].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
+        payload['arguments'].execute.inArguments[1].Journey = "{{Contact.Attribute.CredikotJourney2.Journey}}"
+        payload['arguments'].execute.inArguments[1].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
+        //payload['arguments'].execute.inArguments[1].Feriados = sinBlancos(document.getElementById('content2').value);
+
+        console.log('acá telefono custom2:');
+        console.log(payload['arguments'].execute.inArguments[1].Telefono);
         connection.trigger('updateActivity', payload);
 
-        console.log('JSON Despues de guardar las variables a enviar');
+        /*
+        //var maxIter = 0;
+        var maxIter2 = payload['arguments'].execute.inArguments[1].Feriados.length;
+
+        if (maxIter2 == 0) {
+            payload['arguments'].execute.inArguments[1].Feriados[1] = fechaDefecto;
+        }
+        else {
+            var i = 0;
+            //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            //console.log('es retornavalorfecha2:')
+            //console.log(retornaValorFecha);
+
+            var vectorAux = [];
+
+            while (maxIter2 > 0) {
+
+                maxIter2--;
+                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[1].Feriados[i]);
+
+                if (retornaValorFecha == true) {
+                    vectorAux.push(payload['arguments'].execute.inArguments[1].Feriados[i]);
+                }
+                i++;
+            }
+
+            payload['arguments'].execute.inArguments[1].Feriados = vectorAux;
+        }
+
+        
+
+        console.log('JSON Despues de guardar las variables a enviar para json2');
         console.log(payload.arguments.execute.inArguments);
+        */
+
 
     }
 
