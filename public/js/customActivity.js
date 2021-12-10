@@ -259,7 +259,7 @@ define([
         }];
 
         var Journey1 = document.getElementById('Journey1').value;
-        //var Journey2 = document.getElementById('Journey2').value;
+        var Journey2 = document.getElementById('Journey2').value;
 
         if (Journey1 != null && Journey1 != undefined) {
             payload['metaData'].isConfigured = true;
@@ -279,7 +279,8 @@ define([
             var bandJourney = 0;
         }
 
-        else {
+
+        else if (Journey2 != null && Journey2 != undefined) {
 
             payload['arguments'].execute.inArguments[1].Mensaje = document.getElementById('content').value;
             payload['arguments'].execute.inArguments[1].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
