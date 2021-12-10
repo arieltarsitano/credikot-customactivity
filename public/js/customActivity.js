@@ -75,25 +75,30 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        var journey1 = document.getElementById('Journey1');
-        var journey2 = document.getElementById('Journey2');
+        var j1 = document.getElementById('Journey1');
+        var j2 = document.getElementById('Journey2');
 
 
-        if (!journey1 && !journey2) {
+        if ((j1 == null || j1 == undefined) && (j2 == null || j2 == undefined)) {
 
-            console.log('Hoy no es feriado. SE PROCEDE!');
+            console.log('No es ninguno de los dos Journeys, ERROR');
             res.status(200).send('Execute');
         }
         else {
 
             if (JSON.stringify(inArguments[0].Journey) == '1') {
                 bandId = 0;
+                console.log('ES BANDERA 0');
             }
             else {
                 bandId = 1;
+                console.log('ES BANDERA 1');
+
             }
         }
-        console.log('que te pasa hermano');
+        console.log('AHORA MUESTRO EL MENSAJE:');
+
+
         console.log(JSON.stringify(inArguments[bandId].Mensaje));
 
         var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
