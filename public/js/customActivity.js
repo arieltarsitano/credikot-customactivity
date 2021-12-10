@@ -93,27 +93,22 @@ define([
         console.log('Mensaje:');
         console.log(JSON.stringify(inArguments[0].Mensaje));
 
-        if (j1 == false && j2 == false) {
 
-            console.log('No es ninguno de los dos Journeys, ERROR');
-            //return res.status(400).end();
+        if (j1 == true) {
+            bandId = 0;
+            console.log('ES BANDERA 0');
+            document.getElementById('Journey1').value = true;
+            document.getElementById('Journey2').value = false;
+
         }
-        else {
-            if (j1 == true) {
-                bandId = 0;
-                console.log('ES BANDERA 0');
-                document.getElementById('Journey1').value = true;
-                document.getElementById('Journey2').value = false;
-
-            }
-            else if (j2 == true) {
-                bandId = 1;
-                console.log('ES BANDERA 1');
-                document.getElementById('Journey2').value = true;
-                document.getElementById('Journey1').value = false;
-            }
+        else if (j2 == true) {
+            bandId = 1;
+            console.log('ES BANDERA 1');
+            document.getElementById('Journey2').value = true;
+            document.getElementById('Journey1').value = false;
         }
 
+        console.log('se fue');
         var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
         var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
         var contenidoMensaje = (JSON.stringify(inArguments[bandId].Mensaje)).substring(1, tamJson - 1);
