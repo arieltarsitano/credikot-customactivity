@@ -319,12 +319,18 @@ define([
 
                 maxIter--;
                 retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[bandJourney].Feriados[i]);
+                console.log('retornValorFecha:');
+                console.log(retornaValorFecha);
 
                 if (retornaValorFecha == true) {
                     vectorAux.push(payload['arguments'].execute.inArguments[bandJourney].Feriados[i]);
                 }
                 i++;
             }
+
+
+            console.log('vector Aux con feriados:');
+            console.log(vectorAux);
 
             payload['arguments'].execute.inArguments[bandJourney].Feriados = vectorAux;
         }
