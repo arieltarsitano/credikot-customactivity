@@ -23,7 +23,7 @@
                "nroWPP":"{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}",
                "linkWPP":"{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}",
                "Telefono":"{{Contact.Attribute.30092021_Journey_Mora.Telefono}}",
-               "Journey":"{{Contact.Attribute.30092021_Journey_Mora.Telefono}}",
+               "Journey":"{{Contact.Attribute.30092021_Journey_Mora.Journey}}",
                "Feriados":"Introduzca los días aquí"
               },
               {
@@ -33,7 +33,7 @@
                 "nroWPP":"{{Contact.Attribute.CredikotJourney2.nroWPP}}",
                 "linkWPP":"{{Contact.Attribute.CredikotJourney2.linkWPP}}",
                 "Telefono":"{{Contact.Attribute.CredikotJourney2.Telefono}}",
-                "Journey":"{{Contact.Attribute.CredikotJourney2.Telefono}}",
+                "Journey":"{{Contact.Attribute.CredikotJourney2.Journey}}",
                 "Feriados":"Introduzca los días aquí"
                }
             ],

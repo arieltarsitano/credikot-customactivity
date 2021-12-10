@@ -9,7 +9,6 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
-    //var payload2 = {};
     var retornaValorFecha = false;
 
 
@@ -53,6 +52,7 @@ define([
 
     function initialize(data) {
 
+        var bandId;
         console.log('qué ondis');
         console.log(data.arguments.execute);
 
@@ -75,21 +75,30 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        //Journey 1
-        var tamJson = (JSON.stringify(inArguments[0].Mensaje)).length;
-        var JsonFeriados = inArguments[0].Feriados;// Journey 1
-        var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
+        var journey1 = document.getElementById('Journey1');
+        var journey2 = document.getElementById('Journey2');
+
+
+        if (!journey1 && !journey2) {
+
+            console.log('Hoy no es feriado. SE PROCEDE!');
+            res.status(200).send('Execute');
+        }
+        else {
+
+            if (decoded.inArguments[0].Journey == 1) {
+                bandId = 0;
+            }
+            else {
+                bandId = 1;
+            }
+        }
+        var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
+        var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
+        var contenidoMensaje = (JSON.stringify(inArguments[bandId].Mensaje)).substring(1, tamJson - 1);
 
         contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
         contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
-
-        //Journey 2
-        var tamJson2 = (JSON.stringify(inArguments[1].Mensaje)).length;
-        var JsonFeriados2 = inArguments[1].Feriados; // Journey 2
-        var contenidoMensaje2 = (JSON.stringify(inArguments[1].Mensaje)).substring(1, tamJson2 - 1);
-
-        contenidoMensaje2 = contenidoMensaje2.replaceAll('\n', '\n');
-        contenidoMensaje2 = contenidoMensaje2.replaceAll('\\', '');
 
         document.getElementById('content').value = contenidoMensaje;
         document.getElementById('content2').value = JsonFeriados;
@@ -238,7 +247,6 @@ define([
         d.setDate(24);
         d.setMonth(11);
 
-
         var year = d.getFullYear(),
             month = (d.getMonth() + 1).toString(),
             formatedMonth = (month.length === 1) ? ("0" + month) : month,
@@ -278,7 +286,6 @@ define([
             var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
             var bandJourney = 0;
         }
-
 
         else if (Journey2 != null && Journey2 != undefined) {
 
@@ -327,7 +334,6 @@ define([
                 }
                 i++;
             }
-
 
             console.log('vector Aux con feriados:');
             console.log(vectorAux);
