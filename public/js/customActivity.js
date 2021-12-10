@@ -96,7 +96,7 @@ define([
         if (j1 == false && j2 == false) {
 
             console.log('No es ninguno de los dos Journeys, ERROR');
-            return res.status(400).end();
+            //return res.status(400).end();
         }
         else {
             if (j1 == true) {
