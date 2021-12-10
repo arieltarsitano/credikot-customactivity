@@ -75,8 +75,8 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        var rates1 = document.getElementById('Journey1').value;
-        var rates2 = document.getElementById('Journey2').value;
+        //var rates1 = document.getElementById('Journey1').value;
+        //var rates2 = document.getElementById('Journey2').value;
         var rate_value1;
         var rate_value2;
 
@@ -86,16 +86,20 @@ define([
 */
 
 
-        if (document.getElementById('Journey1').checked) {
-            rate_value1 = document.getElementById('Journey1').value;
-            rate_value2 = document.getElementById('Journey2').value;
-            console.log('valor 1:');
-            console.log(rate_value1);
-            console.log('valor 2:');
-            console.log(rate_value2);
+        // if (document.getElementById('Journey1').checked) {
+        rate_value1 = document.getElementById('Journey1').value;
+        rate_value2 = document.getElementById('Journey2').value;
+        console.log('valor 1:');
+        console.log(rate_value1);
+        console.log('valor 2:');
+        console.log(rate_value2);
+        console.log('Check radio1:');
+        console.log(document.getElementById('Journey1').checked);
+        console.log('Check radio2:');
+        console.log(document.getElementById('Journey2').checked);
 
 
-        }
+        // }
         /*
                 if ((j1 == null || j1 == undefined) && (j2 == null || j2 == undefined)) {
         
