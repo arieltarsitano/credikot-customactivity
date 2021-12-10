@@ -86,7 +86,7 @@ define([
         }
         else {
 
-            if (JSON.stringify(decoded.inArguments[0].Journey) == '1') {
+            if (JSON.stringify(inArguments[0].Journey) == '1') {
                 bandId = 0;
             }
             else {
