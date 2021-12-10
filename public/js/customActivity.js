@@ -75,70 +75,83 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        var j1 = document.getElementById('Journey1');
-        var j2 = document.getElementById('Journey2');
-
-        console.log('Inicios de j1:');
-        console.log(j1);
-        console.log('Inicios de j2:');
-        console.log(j2);
-
-
-        if ((j1 == null || j1 == undefined) && (j2 == null || j2 == undefined)) {
-
-            console.log('No es ninguno de los dos Journeys, ERROR');
-            res.status(200).send('Execute');
-        }
-        else {
-
-
-            if (j1) {
-                bandId = 0;
-                console.log('ES BANDERA 0');
-                document.getElementById('Journey2').value = false;
-                document.getElementById('Journey1').value = true;
-
-            }
-            else if (j2) {
-                bandId = 1;
-                console.log('ES BANDERA 1');
-                document.getElementById('Journey1').value = false;
-                document.getElementById('Journey2').value = true;
-
-            }
-        }
-
-        var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
-        var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
-        var contenidoMensaje = (JSON.stringify(inArguments[bandId].Mensaje)).substring(1, tamJson - 1);
-
-        contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
-        contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
-
-        document.getElementById('content').value = contenidoMensaje;
-        document.getElementById('content2').value = JsonFeriados;
-
+        var rates1 = document.getElementById('Journey1').value;
+        var rates2 = document.getElementById('Journey2').value;
+        var rate_value1;
+        var rate_value2;
 
         /*
-        var Datos = DataExtension.Init("Datos");
-        var complexfilter = {
-            LeftOperand: {
-                Property: "Nombre",
-                SimpleOperator: "equals",
-                Value: Nombre
-            },
-            LogicalOperator: "AND",
-            RightOperand: {
-                Property: "Monto",
-                SimpleOperator: "greater than",
-                Value: Monto
-            }
-        };
+        var j1 = document.getElementById('Journey1');
+        var j2 = document.getElementById('Journey2');
+*/
 
-        var moredata = Datos.Rows.Retrieve(complexfilter);
+
+        if (document.getElementById('Journey1').checked) {
+            rate_value1 = document.getElementById('Journey1').value;
+            rate_value2 = document.getElementById('Journey2').value;
+            console.log('valor 1:');
+            console.log(rate_value1);
+            console.log('valor 2:');
+            console.log(rate_value2);
+
+
+        }
+        /*
+                if ((j1 == null || j1 == undefined) && (j2 == null || j2 == undefined)) {
+        
+                    console.log('No es ninguno de los dos Journeys, ERROR');
+                    res.status(200).send('Execute');
+                }
+                else {
+        
+        
+                    if (j1) {
+                        bandId = 0;
+                        console.log('ES BANDERA 0');
+                        document.getElementById('Journey2').value = false;
+                        document.getElementById('Journey1').value = true;
+        
+                    }
+                    else if (j2) {
+                        bandId = 1;
+                        console.log('ES BANDERA 1');
+                        document.getElementById('Journey1').value = false;
+                        document.getElementById('Journey2').value = true;
+        
+                    }
+                }
+        
+                var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
+                var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
+                var contenidoMensaje = (JSON.stringify(inArguments[bandId].Mensaje)).substring(1, tamJson - 1);
+        
+                contenidoMensaje = contenidoMensaje.replaceAll('\n', '\n');
+                contenidoMensaje = contenidoMensaje.replaceAll('\\', '');
+        
+                document.getElementById('content').value = contenidoMensaje;
+                document.getElementById('content2').value = JsonFeriados;
+        
+        
+                /*
+                var Datos = DataExtension.Init("Datos");
+                var complexfilter = {
+                    LeftOperand: {
+                        Property: "Nombre",
+                        SimpleOperator: "equals",
+                        Value: Nombre
+                    },
+                    LogicalOperator: "AND",
+                    RightOperand: {
+                        Property: "Monto",
+                        SimpleOperator: "greater than",
+                        Value: Monto
+                    }
+                };
+        
+                var moredata = Datos.Rows.Retrieve(complexfilter);
+                
+        
         */
-
-
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
 
