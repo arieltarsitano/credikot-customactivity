@@ -104,6 +104,7 @@ define([
             console.log(inArguments[bandId].Mensaje);
 
         }
+        console.log('pasó todo bien');
 
         var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
         var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
