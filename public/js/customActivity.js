@@ -301,10 +301,13 @@ define([
 
         if (maxIter == 0) {
 
+            console.log('fecha por defecto:');
             payload['arguments'].execute.inArguments[bandJourney].Feriados[0] = fechaDefecto;
 
         }
         else {
+            console.log('fecha por defecto:tiene fechas para meter');
+
             var i = 0;
             //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
             //console.log('es retornavalorfecha:');
