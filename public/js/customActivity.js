@@ -87,8 +87,8 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
 
-        //var j1 = document.getElementById('Journey1').checked = true;
-        //var j2 = document.getElementById('Journey2').checked = true;
+        var j1 = document.getElementById('Journey1').checked;
+        var j2 = document.getElementById('Journey2').checked;
 
         console.log('Mensaje:');
         console.log(JSON.stringify(inArguments[0].Mensaje));
