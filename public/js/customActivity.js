@@ -89,22 +89,18 @@ define([
             if (j1) {
                 bandId = 0;
                 console.log('ES BANDERA 0');
+                document.getElementById('Journey2').value = false;
+                document.getElementById('Journey1').value = true;
+
             }
             else {
                 bandId = 1;
                 console.log('ES BANDERA 1');
+                document.getElementById('Journey1').value = false;
+                document.getElementById('Journey2').value = true;
 
             }
         }
-        //console.log('AHORA MUESTRO EL MENSAJE:');
-        if (JSON.stringify(inArguments[bandId].Mensaje) == undefined || JSON.stringify(inArguments[bandId].Mensaje) == null) {
-            console.log('entro para poner pepito:');
-            inArguments[bandId].Mensaje = 'pepito';
-            console.log('aber');
-            console.log(inArguments[bandId].Mensaje);
-
-        }
-        console.log('pasó todo bien');
 
         var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
         var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
@@ -281,6 +277,11 @@ define([
 
         var Journey1 = document.getElementById('Journey1').value;
         var Journey2 = document.getElementById('Journey2').value;
+        console.log('botón 1:')
+        console.log(Journey1);
+        console.log('botón 2:')
+        console.log(Journey2);
+
 
         if (Journey1 != null && Journey1 != undefined) {
             payload['metaData'].isConfigured = true;
@@ -290,7 +291,6 @@ define([
             payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
             payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
             payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
-            payload['arguments'].execute.inArguments[0].Journey = "{{Contact.Attribute.30092021_Journey_Mora.Journey}}"
             payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
 
             console.log('acá telefono custom1:');
@@ -307,7 +307,6 @@ define([
             payload['arguments'].execute.inArguments[1].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
             payload['arguments'].execute.inArguments[1].nroWPP = "{{Contact.Attribute.CredikotJourney2.nroWPP}}"
             payload['arguments'].execute.inArguments[1].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
-            payload['arguments'].execute.inArguments[1].Journey = "{{Contact.Attribute.CredikotJourney2.Journey}}"
             payload['arguments'].execute.inArguments[1].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
             payload['arguments'].execute.inArguments[1].Feriados = sinBlancos(document.getElementById('content2').value);
 
