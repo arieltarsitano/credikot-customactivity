@@ -86,16 +86,15 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        /*
-                var j1 = document.getElementById('Journey1').checked;
-                console.log('j1');
-                console.log(j1);
-                var j2 = document.getElementById('Journey2').checked;
-                console.log('j2');
-                console.log(j2);
-        */
 
-        if (inArguments[0].Mensaje != null && inArguments[0].Mensaje != undefined) {
+        var j1 = payload['arguments'].execute.inArguments[0].Boton1;
+        console.log('j1');
+        console.log(j1);
+        var j2 = payload['arguments'].execute.inArguments[1].Boton2;
+        console.log('j2');
+        console.log(j2);
+
+        if (j1) {
             bandId = 0;
             console.log('ES BANDERA 0');
             document.getElementById('Journey1').value = true;
