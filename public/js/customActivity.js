@@ -81,6 +81,7 @@ define([
 
         console.log('Mensaje:');
         console.log(JSON.stringify(inArguments[0].Mensaje));
+
         if (j1 == false && j2 == false) {
 
             console.log('No es ninguno de los dos Journeys, ERROR');
