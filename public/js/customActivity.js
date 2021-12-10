@@ -75,6 +75,7 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
+
         var j1 = document.getElementById('Journey1').checked;
         var j2 = document.getElementById('Journey2').checked;
 
@@ -83,7 +84,7 @@ define([
         if (j1 == false && j2 == false) {
 
             console.log('No es ninguno de los dos Journeys, ERROR');
-            res.status(200).send('Execute');
+            return res.status(400).end();
         }
         else {
             if (j1 == true) {
