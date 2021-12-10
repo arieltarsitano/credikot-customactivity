@@ -52,7 +52,7 @@ define([
 
     function initialize(data) {
 
-        var bandId;
+        var bandId = 0;
         console.log('qué ondis');
         console.log(data.arguments.execute);
 
@@ -93,6 +93,9 @@ define([
                 bandId = 1;
             }
         }
+        console.log('que te pasa hermano');
+        console.log(JSON.stringify(inArguments[bandId].Mensaje));
+
         var tamJson = (JSON.stringify(inArguments[bandId].Mensaje)).length;
         var JsonFeriados = inArguments[bandId].Feriados;// Journey 1
         var contenidoMensaje = (JSON.stringify(inArguments[bandId].Mensaje)).substring(1, tamJson - 1);
