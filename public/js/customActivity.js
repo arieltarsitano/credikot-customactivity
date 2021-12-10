@@ -333,6 +333,8 @@ define([
             console.log(vectorAux);
 
             payload['arguments'].execute.inArguments[bandJourney].Feriados = vectorAux;
+            console.log('vector Aux con feriados bandera:');
+            console.log(payload['arguments'].execute.inArguments[bandJourney].Feriados);
         }
 
         console.log('JSON Despues de guardar las variables a enviar para el journey2');
