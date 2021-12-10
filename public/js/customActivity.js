@@ -86,19 +86,16 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
+        /*
+                var j1 = document.getElementById('Journey1').checked;
+                console.log('j1');
+                console.log(j1);
+                var j2 = document.getElementById('Journey2').checked;
+                console.log('j2');
+                console.log(j2);
+        */
 
-        var j1 = document.getElementById('Journey1').checked;
-        console.log('j1');
-        console.log(j1);
-        var j2 = document.getElementById('Journey2').checked;
-        console.log('j2');
-        console.log(j2);
-
-        console.log('Mensaje:');
-        console.log(JSON.stringify(inArguments[0].Mensaje));
-
-
-        if (j1 == true) {
+        if (inArguments[0].Mensaje != null && inArguments[0].Mensaje != undefined) {
             bandId = 0;
             console.log('ES BANDERA 0');
             document.getElementById('Journey1').value = true;
@@ -292,6 +289,7 @@ define([
 
         var Journey1 = document.getElementById('Journey1').checked;
         var Journey2 = document.getElementById('Journey2').checked;
+
         console.log('botón 1 checked:');
         console.log(Journey1);
         console.log('botón 2 checked:');
@@ -307,6 +305,7 @@ define([
             payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
             payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
             payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+
 
             console.log('acá telefono custom1:');
             console.log(payload['arguments'].execute.inArguments[0].Telefono);
@@ -332,6 +331,9 @@ define([
             var bandJourney = 1;
 
         }
+
+        payload['arguments'].execute.inArguments[0].Boton1 = document.getElementById('Journey1').checked;
+        payload['arguments'].execute.inArguments[1].Boton2 = document.getElementById('Journey2').checked;
 
         if (maxIter == 0) {
 
