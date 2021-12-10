@@ -50,6 +50,17 @@ define([
         console.log(eventDefinitionModel);
     }
 
+    var currentValue = 0;
+    function handleClick(myRadio) {
+
+        // if (myRadio.id == 'Journey1')
+        console.log('myRadio');
+        console.log(myRadio);
+        alert('Old value: ' + currentValue);
+        alert('New value: ' + myRadio.value);
+        currentValue = myRadio.value;
+    }
+
     function initialize(data) {
 
         var bandId;
@@ -76,8 +87,8 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
 
-        var j1 = document.getElementById('Journey1').checked;
-        var j2 = document.getElementById('Journey2').checked;
+        //var j1 = document.getElementById('Journey1').checked = true;
+        //var j2 = document.getElementById('Journey2').checked = true;
 
         console.log('Mensaje:');
         console.log(JSON.stringify(inArguments[0].Mensaje));
