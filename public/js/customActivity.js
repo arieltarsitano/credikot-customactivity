@@ -78,6 +78,8 @@ define([
         var j1 = document.getElementById('Journey1').checked;
         var j2 = document.getElementById('Journey2').checked;
 
+        console.log('Mensaje:');
+        console.log(JSON.stringify(inArguments[0].Mensaje));
         if (j1 == false && j2 == false) {
 
             console.log('No es ninguno de los dos Journeys, ERROR');
@@ -125,11 +127,11 @@ define([
                 Value: Monto
             }
         };
- 
+         
         var moredata = Datos.Rows.Retrieve(complexfilter);
-        
- 
-*/
+         
+         
+        */
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
 
@@ -197,20 +199,20 @@ define([
 
     /*
     function comillas(JsonFeriados) {
- 
+     
         if (JsonFeriados != null && JsonFeriados.length > 0) {
             var partsArray = [];
             var cont = 0;
             var tam = JsonFeriados.length;
- 
+     
             while (tam > 0) {
                 partsArray[cont] = JsonFeriados[cont].substring(1, JsonFeriados[cont].length - 1);
                 cont++;
                 tam--;
             }
- 
+     
         }
- 
+     
         return partsArray;
     }
     */
