@@ -332,12 +332,16 @@ define([
             }
 
             payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
+            console.log('vector Aux con feriados bandera:');
+            console.log(payload['arguments'].execute.inArguments[0].Feriados);
         }
 
-        connection.trigger('updateActivity', payload);
+
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
+        connection.trigger('updateActivity', payload);
+        console.log('todo ok');
 
     }
 
