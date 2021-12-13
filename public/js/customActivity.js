@@ -125,15 +125,15 @@ define([
         if (j1 == 'true') {
             bandId = 0;
             console.log('ES BANDERA 0');
-            document.getElementById('Journey1').value = true;
-            document.getElementById('Journey2').value = false;
+            document.getElementById('Journey1').checked = true;
+            document.getElementById('Journey2').checked = false;
 
         }
         else if (j2 == 'true') {
             bandId = 1;
             console.log('ES BANDERA 1');
-            document.getElementById('Journey2').value = true;
-            document.getElementById('Journey1').value = false;
+            document.getElementById('Journey2').checked = true;
+            document.getElementById('Journey1').checked = false;
         }
 
         console.log('se fue');
