@@ -87,10 +87,11 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
         console.log('Inicio de try');
-
+        var j1;
+        var j2;
 
         try {
-            var j1 = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton1);
+            j1 = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton1);
             console.log('j1');
             console.log(j1);
 
@@ -101,7 +102,7 @@ define([
         }
 
         try {
-            var j2 = JSON.stringify(payload['arguments'].execute.inArguments[1].Boton2);
+            j2 = JSON.stringify(payload['arguments'].execute.inArguments[1].Boton2);
             console.log('j2');
             console.log(j2);
 
