@@ -79,14 +79,22 @@ define([
         var JsonFeriados = inArguments[0].Feriados;//   (JSON.stringify(inArguments[0].Feriados)).substring(1, TamJsonFeriados - 1);
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
 
-        var tipoJourneyIni = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
+        //var tipoJourneyIni = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
+        var tipoJourneyIni = inArguments[0].Boton;
+
+        console.log('Aca valor tipoJourneyIni');
+        console.log(tipoJourneyIni);
 
         if (tipoJourneyIni == 'Venta') {
             document.getElementById('Journey1').checked = false;
             document.getElementById('Journey2').checked = true;
+
+            console.log('Entro en J2 Venta');
         } else if (tipoJourneyIni == 'Mora') {
             document.getElementById('Journey1').checked = true;
             document.getElementById('Journey2').checked = false;
+
+            console.log('Entro en J1 Mora');
         }
 
         /*
