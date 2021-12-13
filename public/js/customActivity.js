@@ -79,6 +79,16 @@ define([
         var JsonFeriados = inArguments[0].Feriados;//   (JSON.stringify(inArguments[0].Feriados)).substring(1, TamJsonFeriados - 1);
         var contenidoMensaje = (JSON.stringify(inArguments[0].Mensaje)).substring(1, tamJson - 1);
 
+        var tipoJourneyIni = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
+
+        if (tipoJourneyIni == 'Venta') {
+            document.getElementById('Journey1').checked = false;
+            document.getElementById('Journey2').checked = true;
+        } else if (tipoJourneyIni == 'Mora') {
+            document.getElementById('Journey1').checked = true;
+            document.getElementById('Journey2').checked = false;
+        }
+
         /*
         var Datos = DataExtension.Init("Datos");
         var complexfilter = {
@@ -94,7 +104,7 @@ define([
                 Value: Monto
             }
         };
-
+ 
         var moredata = Datos.Rows.Retrieve(complexfilter);
         */
 
@@ -249,15 +259,34 @@ define([
             "tokens": authTokens
         }];
 
+        var boton1 = document.getElementById('Journey1').checked;
+        var boton2 = document.getElementById('Journey2').checked;
+        var tipoJourney = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
 
-        payload['metaData'].isConfigured = true;
-        payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-        payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
-        payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
-        payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
-        payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
-        payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+        payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+
+
+        if (boton1 == true || tipoJourney == 'Mora') {
+            payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
+            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
+            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.30092021_Journey_Mora.nroWPP}}"
+            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
+            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
+            payload['arguments'].execute.inArguments[0].Boton = "Mora";
+
+        } else if (boton2 == true || tipoJourney == 'Venta') {
+            payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
+            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
+            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.CredikotJourney2.nroWPP}}"
+            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
+            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
+            payload['arguments'].execute.inArguments[0].Boton = "Venta";
+
+        }
+
 
         console.log('acá telefono custom:');
         console.log(payload['arguments'].execute.inArguments[0].Telefono);
