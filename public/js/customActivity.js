@@ -345,6 +345,7 @@ define([
 
         console.log('JSON Despues de guardar las variables a enviar');
         console.log(payload.arguments.execute.inArguments);
+        console.log(payload.arguments.execute.inArguments[0]);
         connection.trigger('updateActivity', payload);
         console.log('todo ok');
 
