@@ -86,13 +86,33 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
+        console.log('Inicio de try');
 
-        var j1 = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton1);
-        console.log('j1');
-        console.log(j1);
-        var j2 = JSON.stringify(payload['arguments'].execute.inArguments[1].Boton2);
-        console.log('j2');
-        console.log(j2);
+
+        try {
+            var j1 = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton1);
+            console.log('j1');
+            console.log(j1);
+
+        } catch (error) {
+            console.error(error);
+            console.log('entró catch j1');
+
+        }
+
+        try {
+            var j2 = JSON.stringify(payload['arguments'].execute.inArguments[1].Boton2);
+            console.log('j2');
+            console.log(j2);
+
+        } catch (error) {
+            console.error(error);
+            console.log('entró catch j2');
+
+        }
+
+        console.log('fin de try');
+
 
         if (j1 == 'true') {
             bandId = 0;
