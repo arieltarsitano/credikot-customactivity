@@ -270,7 +270,10 @@ define([
         var boton1 = document.getElementById('Journey1').checked;
         var boton2 = document.getElementById('Journey2').checked;
 
-        var tipoJourney = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
+        //var tipoJourney = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
+        var tipoJourney = payload['arguments'].execute.inArguments[0].Boton;
+        console.log('Aca tipoJourney del save');
+        console.log(tipoJourney);
 
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
