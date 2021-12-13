@@ -68,7 +68,14 @@ define([
         console.log(data.arguments.execute);
 
         console.log('qué ondis22');
+        console.log(data.arguments.execute.inArguments);
+
+        console.log('qué ondis argumento 0');
+        console.log(data.arguments.execute.inArguments[0]);
+
+        console.log('qué ondis argumento 1');
         console.log(data.arguments.execute.inArguments[1]);
+
 
         console.log('qué ondis4');
         console.log(data.arguments.execute.outArguments);
