@@ -269,6 +269,7 @@ define([
 
         var boton1 = document.getElementById('Journey1').checked;
         var boton2 = document.getElementById('Journey2').checked;
+
         var tipoJourney = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
 
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
@@ -304,9 +305,6 @@ define([
         }
 
 
-
-        console.log('acá telefono custom:');
-        console.log(payload['arguments'].execute.inArguments[0].Telefono);
 
         //var maxIter = 0;
         var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
