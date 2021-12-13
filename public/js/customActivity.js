@@ -265,6 +265,11 @@ define([
 
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
         payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+        console.log('Boton 1:');
+        console.log(boton1);
+
+        console.log('Boton 2:');
+        console.log(boton2);
 
 
         if (boton1 == true || tipoJourney == 'Mora') {
@@ -275,6 +280,7 @@ define([
             payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.30092021_Journey_Mora.linkWPP}}"
             payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
             payload['arguments'].execute.inArguments[0].Boton = "Mora";
+            console.log('Entró a guardar j1');
 
         } else if (boton2 == true || tipoJourney == 'Venta') {
             payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
@@ -284,7 +290,7 @@ define([
             payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
             payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
             payload['arguments'].execute.inArguments[0].Boton = "Venta";
-
+            console.log('Entró a guardar j2');
         }
 
 
