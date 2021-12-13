@@ -270,10 +270,10 @@ define([
         var boton1 = document.getElementById('Journey1').checked;
         var boton2 = document.getElementById('Journey2').checked;
 
-        //var tipoJourney = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
-        /*var tipoJourney = payload['arguments'].execute.inArguments[0].Boton;
+        var tipoJourney = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
+        //var tipoJourney = payload['arguments'].execute.inArguments[0].Boton;
         console.log('Aca tipoJourney del save');
-        console.log(tipoJourney);*/
+        console.log(tipoJourney);
 
 
         payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
@@ -285,7 +285,7 @@ define([
         console.log(boton2);
 
 
-        if ((boton1 == true && boton2 == false)/* || tipoJourney == 'Mora'*/) {
+        if ((boton1 == true && boton2 == false) || tipoJourney == 'Mora') {
             payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
             payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
             payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.30092021_Journey_Mora.Monto}}"
@@ -296,7 +296,7 @@ define([
             payload['arguments'].execute.inArguments[0].Boton = "Mora";
             console.log('Entró a guardar j1');
 
-        } else if ((boton2 == true && boton1 == false)/* || tipoJourney == 'Venta'*/) {
+        } else if ((boton2 == true && boton1 == false) || tipoJourney == 'Venta') {
             payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
             payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
             payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
