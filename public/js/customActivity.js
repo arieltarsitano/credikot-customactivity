@@ -290,7 +290,8 @@ define([
             payload['arguments'].execute.inArguments[0].Boton = "Mora";
             console.log('Entró a guardar j1');
 
-        } else if ((boton2 == true && boton1 == false) || tipoJourney == 'Venta') {
+        } else //if ((boton2 == true && boton1 == false) || tipoJourney == 'Venta') {
+        {
             payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
             payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
             payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
