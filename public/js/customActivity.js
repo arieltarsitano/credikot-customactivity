@@ -291,60 +291,59 @@ define([
             console.log('Entró a guardar j1');
 
         } else if ((boton2 == true && boton1 == false) || tipoJourney == 'Venta') {
-            {
-                payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-                payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
-                payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
-                payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.CredikotJourney2.nroWPP}}"
-                payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
-                payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
-                payload['arguments'].execute.inArguments[0].Boton = "Venta";
-                console.log('Entró a guardar j2');
-            }
-
-
-            console.log('acá telefono custom:');
-            console.log(payload['arguments'].execute.inArguments[0].Telefono);
-
-            //var maxIter = 0;
-            var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
-
-            if (maxIter == 0) {
-                payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
-
-            }
-            else {
-                var i = 0;
-                //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-                console.log('es retornavalorfecha:')
-                console.log(retornaValorFecha);
-
-                var vectorAux = [];
-
-                while (maxIter > 0) {
-
-                    maxIter--;
-                    retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
-
-                    if (retornaValorFecha == true) {
-                        vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
-                    }
-                    i++;
-                }
-
-                payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
-                console.log('vector Aux con feriados bandera:');
-                console.log(payload['arguments'].execute.inArguments[0].Feriados);
-            }
-
-
-
-            console.log('JSON Despues de guardar las variables a enviar');
-            console.log(payload.arguments.execute.inArguments);
-            connection.trigger('updateActivity', payload);
-            console.log('todo ok');
-
+            payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
+            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.CredikotJourney2.Monto}}"
+            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.CredikotJourney2.nroWPP}}"
+            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.CredikotJourney2.linkWPP}}"
+            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
+            payload['arguments'].execute.inArguments[0].Boton = "Venta";
+            console.log('Entró a guardar j2');
         }
 
 
-    });
+        console.log('acá telefono custom:');
+        console.log(payload['arguments'].execute.inArguments[0].Telefono);
+
+        //var maxIter = 0;
+        var maxIter = payload['arguments'].execute.inArguments[0].Feriados.length;
+
+        if (maxIter == 0) {
+            payload['arguments'].execute.inArguments[0].Feriados[0] = fechaDefecto;
+
+        }
+        else {
+            var i = 0;
+            //retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+            console.log('es retornavalorfecha:')
+            console.log(retornaValorFecha);
+
+            var vectorAux = [];
+
+            while (maxIter > 0) {
+
+                maxIter--;
+                retornaValorFecha = isValidDate(payload['arguments'].execute.inArguments[0].Feriados[i]);
+
+                if (retornaValorFecha == true) {
+                    vectorAux.push(payload['arguments'].execute.inArguments[0].Feriados[i]);
+                }
+                i++;
+            }
+
+            payload['arguments'].execute.inArguments[0].Feriados = vectorAux;
+            console.log('vector Aux con feriados bandera:');
+            console.log(payload['arguments'].execute.inArguments[0].Feriados);
+        }
+
+
+
+        console.log('JSON Despues de guardar las variables a enviar');
+        console.log(payload.arguments.execute.inArguments);
+        connection.trigger('updateActivity', payload);
+        console.log('todo ok');
+
+    }
+
+
+});
