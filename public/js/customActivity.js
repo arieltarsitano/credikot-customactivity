@@ -333,7 +333,7 @@ define([
             payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.30092021_Journey_Mora.Telefono}}"
             payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
             payload['arguments'].execute.inArguments[0].Boton1 = true;
-            //payload['arguments'].execute.inArguments[1].Boton2 = false;
+            payload['arguments'].execute.inArguments[1].Boton2 = false;
 
 
             console.log('acá telefono custom1:');
@@ -353,7 +353,7 @@ define([
             payload['arguments'].execute.inArguments[1].Telefono = "{{Contact.Attribute.CredikotJourney2.Telefono}}"
             payload['arguments'].execute.inArguments[1].Feriados = sinBlancos(document.getElementById('content2').value);
             payload['arguments'].execute.inArguments[1].Boton2 = true;
-            //payload['arguments'].execute.inArguments[0].Boton1 = false;
+            payload['arguments'].execute.inArguments[0].Boton1 = false;
 
             console.log('acá telefono custom2:');
             console.log(payload['arguments'].execute.inArguments[1].Telefono);
