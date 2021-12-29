@@ -91,6 +91,10 @@ define([
             console.log(document.getElementById('Journey1').checked);
             document.getElementById('Journey2').checked = true;
             console.log(document.getElementById('Journey2').checked);
+            document.getElementById('Journey3').checked = false;
+            console.log(document.getElementById('Journey3').checked);
+            document.getElementById('Journey4').checked = false;
+            console.log(document.getElementById('Journey4').checked);
 
         } else if (tipoJourneyIni == 'Mora') {
             console.log('Segunda vuelta, se mete tipoJoureyIni ELSE MORA')
@@ -98,6 +102,34 @@ define([
             console.log(document.getElementById('Journey1').checked);
             document.getElementById('Journey2').checked = false;
             console.log(document.getElementById('Journey2').checked);
+            document.getElementById('Journey3').checked = false;
+            console.log(document.getElementById('Journey2').checked);
+            document.getElementById('Journey4').checked = false;
+            console.log(document.getElementById('Journey2').checked);
+        }
+        else if (tipoJourneyIni == 'TestingMora') {
+            console.log('Tercera vuelta, se mete tipoJoureyIni ELSE TESTINGMORA')
+            document.getElementById('Journey1').checked = false;
+            console.log(document.getElementById('Journey1').checked);
+            document.getElementById('Journey2').checked = false;
+            console.log(document.getElementById('Journey2').checked);
+            document.getElementById('Journey3').checked = true;
+            console.log(document.getElementById('Journey3').checked);
+            document.getElementById('Journey4').checked = false;
+            console.log(document.getElementById('Journey4').checked);
+
+        }
+        else if (tipoJourneyIni == 'TestingVenta') {
+            console.log('Cuarta vuelta, se mete tipoJoureyIni ELSE TESTINGVENTA')
+            document.getElementById('Journey1').checked = false;
+            console.log(document.getElementById('Journey1').checked);
+            document.getElementById('Journey2').checked = false;
+            console.log(document.getElementById('Journey2').checked);
+            document.getElementById('Journey3').checked = false;
+            console.log(document.getElementById('Journey3').checked);
+            document.getElementById('Journey4').checked = true;
+            console.log(document.getElementById('Journey4').checked);
+
         }
 
         /*
@@ -272,6 +304,10 @@ define([
 
         var boton1 = document.getElementById('Journey1').checked;
         var boton2 = document.getElementById('Journey2').checked;
+        var boton3 = document.getElementById('Journey3').checked;
+        var boton4 = document.getElementById('Journey4').checked;
+
+
 
         var tipoJourney = JSON.stringify(payload['arguments'].execute.inArguments[0].Boton);
         //var tipoJourney = payload['arguments'].execute.inArguments[0].Boton;
@@ -287,8 +323,14 @@ define([
         console.log('Boton 2:');
         console.log(boton2);
 
+        console.log('Boton 3:');
+        console.log(boton3);
 
-        if ((boton1 == true && boton2 == false) || tipoJourney == 'Mora') {
+        console.log('Boton 4:');
+        console.log(boton4);
+
+
+        if ((boton1 == true && boton2 == false && boton3 == false && boton4 == false) || tipoJourney == 'Mora') {
             payload['metaData'].isConfigured = true;
             payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
             payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.30092021_Journey_Mora.Nombre}}"
@@ -300,7 +342,7 @@ define([
             payload['arguments'].execute.inArguments[0].Boton = "Mora";
             console.log('Entró a guardar j1');
 
-        } else if ((boton2 == true && boton1 == false) || tipoJourney == 'Venta') {
+        } else if ((boton2 == true && boton1 == false && boton3 == false && boton4 == false) || tipoJourney == 'Venta') {
             payload['metaData'].isConfigured = true;
             payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
             payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.CredikotJourney2.Nombre}}"
@@ -312,6 +354,31 @@ define([
             payload['arguments'].execute.inArguments[0].Boton = "Venta";
             console.log('Entró a guardar j2');
         }
+        else if ((boton3 == true && boton1 == false && boton2 == false && boton4 == false) || tipoJourney == 'TestingMora') {
+            payload['metaData'].isConfigured = true;
+            payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.MoraTesting.Nombre}}"
+            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.MoraTesting.Monto}}"
+            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.MoraTesting.nroWPP}}"
+            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.MoraTesting.linkWPP}}"
+            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.MoraTesting.Telefono}}"
+            payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+            payload['arguments'].execute.inArguments[0].Boton = "TestingMora";
+            console.log('Entró a guardar j3');
+        }
+        else if ((boton4 == true && boton1 == false && boton2 == false && boton3 == false) || tipoJourney == 'TestingVenta') {
+            payload['metaData'].isConfigured = true;
+            payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
+            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.VentaTesting.Nombre}}"
+            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.VentaTesting.Monto}}"
+            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.VentaTesting.nroWPP}}"
+            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.VentaTesting.linkWPP}}"
+            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.VentaTesting.Telefono}}"
+            payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
+            payload['arguments'].execute.inArguments[0].Boton = "TestingVenta";
+            console.log('Entró a guardar j4');
+        }
+
 
 
 
