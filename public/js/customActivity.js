@@ -369,11 +369,11 @@ define([
         else if ((boton4 == true && boton1 == false && boton2 == false && boton3 == false) || tipoJourney == 'TestingVenta') {
             payload['metaData'].isConfigured = true;
             payload['arguments'].execute.inArguments[0].Mensaje = document.getElementById('content').value;
-            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.VentaTesting.Nombre}}"
-            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.VentaTesting.Monto}}"
-            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.VentaTesting.nroWPP}}"
-            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.VentaTesting.linkWPP}}"
-            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.VentaTesting.Telefono}}"
+            payload['arguments'].execute.inArguments[0].Nombre = "{{Contact.Attribute.TestingVenta.Nombre}}"
+            payload['arguments'].execute.inArguments[0].Monto = "{{Contact.Attribute.TestingVenta.Monto}}"
+            payload['arguments'].execute.inArguments[0].nroWPP = "{{Contact.Attribute.TestingVenta.nroWPP}}"
+            payload['arguments'].execute.inArguments[0].linkWPP = "{{Contact.Attribute.TestingVenta.linkWPP}}"
+            payload['arguments'].execute.inArguments[0].Telefono = "{{Contact.Attribute.TestingVenta.Telefono}}"
             payload['arguments'].execute.inArguments[0].Feriados = sinBlancos(document.getElementById('content2').value);
             payload['arguments'].execute.inArguments[0].Boton = "TestingVenta";
             console.log('Entró a guardar j4');
