@@ -100,12 +100,15 @@ define([
             console.log('Segunda vuelta, se mete tipoJoureyIni ELSE MORA')
             document.getElementById('Journey1').checked = true;
             console.log(document.getElementById('Journey1').checked);
+
             document.getElementById('Journey2').checked = false;
             console.log(document.getElementById('Journey2').checked);
+
             document.getElementById('Journey3').checked = false;
-            console.log(document.getElementById('Journey2').checked);
+            console.log(document.getElementById('Journey3').checked);
+
             document.getElementById('Journey4').checked = false;
-            console.log(document.getElementById('Journey2').checked);
+            console.log(document.getElementById('Journey4').checked);
         }
         else if (tipoJourneyIni == 'TestingMora') {
             console.log('Tercera vuelta, se mete tipoJoureyIni ELSE TESTINGMORA')
